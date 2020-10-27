@@ -1,20 +1,4 @@
-import {
-  AfterContentInit,
-  ContentChild,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  OnDestroy,
-  Output,
-  QueryList,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef,
-  AfterViewInit
-} from '@angular/core';
+import { AfterContentInit, ContentChild, ContentChildren, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnDestroy, Output, QueryList, TemplateRef, ViewChild, ViewContainerRef, AfterViewInit, Directive } from '@angular/core';
 import {Subscription} from 'rxjs';
 import {DropdownService, FuiDropdownMenu} from '../../dropdown/internal';
 import {FilterFn, LookupFn, SearchService} from '../../search/internal';
@@ -29,6 +13,7 @@ export interface IOptionContext<T> extends ITemplateRefContext<T> {
 
 // We use generic type T to smenuTransitionDurationpecify the type of the options we are working with,
 // and U to specify the type of the property of the option used as the value.
+@Directive()
 export abstract class FuiSelectBase<T, U> implements AfterViewInit, OnDestroy {
 
   public dropdownService: DropdownService;
@@ -62,9 +47,9 @@ export abstract class FuiSelectBase<T, U> implements AfterViewInit, OnDestroy {
   protected _renderedOptions: QueryList<FuiSelectOption<T>>;
   // Keep track of all of the subscriptions to the selected events on the rendered options.
   private _renderedSubscriptions: Subscription[];
-  @ViewChild(FuiSelectSearch, {static: false})
+  @ViewChild(FuiSelectSearch)
   private _internalSearch?: FuiSelectSearch;
-  @ContentChild(FuiSelectSearch, {static: false})
+  @ContentChild(FuiSelectSearch)
   private _manualSearch?: FuiSelectSearch;
   @Input('tabindex')
   private _tabIndex?: number;
