@@ -1,7 +1,6 @@
 export * from './accordion/public';
 export * from './checkbox/public';
 export * from './collapse/public';
-export * from './datepicker/public';
 export * from './dimmer/public';
 export * from './dropdown/public';
 export * from './modal/public';

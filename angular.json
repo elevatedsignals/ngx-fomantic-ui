@@ -10,7 +10,7 @@
       "prefix": "fui",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-fomantic-ui/tsconfig.lib.json",
             "project": "projects/ngx-fomantic-ui/ng-package.json"
