@@ -1,6 +1,6 @@
 import {Component, HostBinding, Input, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {FuiComponentFactory} from '../../../misc/util/internal';
-import {IResultContext} from './search';
+import {IResultContext} from './result-context';
 
 @Component({
   selector: 'fui-search-result',

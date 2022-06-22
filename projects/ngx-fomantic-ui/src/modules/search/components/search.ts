@@ -11,15 +11,12 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {IFocusEvent, ITemplateRefContext, Util} from '../../../misc/util/internal';
+import {IFocusEvent, Util} from '../../../misc/util/internal';
 import {DropdownService, FuiDropdownMenu} from '../../dropdown/internal';
 import {ISearchLocaleValues, RecursivePartial, FuiLocalizationService} from '../../../behaviors/localization/internal';
 import {SearchService} from '../services/search.service';
 import {FilterFn, LookupFn} from '../helpers/lookup-fn';
-
-export interface IResultContext<T> extends ITemplateRefContext<T> {
-  query: string;
-}
+import { IResultContext } from './result-context';
 
 @Component({
   selector: 'fui-search',
