@@ -13,8 +13,9 @@ import {
 } from '../../../misc/util/internal';
 import {IDatepickerLocaleValues, RecursivePartial, FuiLocalizationService} from '../../../behaviors/localization/internal';
 import {PopupAfterOpen, PopupConfig, PopupTrigger, FuiPopupComponentController} from '../../popup/internal';
-import {DatepickerMode, FuiDatepicker} from '../components/datepicker';
+import {FuiDatepicker} from '../components/datepicker';
 import {CalendarConfig, DateConfig, DatetimeConfig, MonthConfig, TimeConfig, YearConfig} from '../classes/calendar-config';
+import { DatepickerMode } from '../helpers/date-picker-mode';
 
 @Directive({
   selector: '[fuiDatepicker]',
