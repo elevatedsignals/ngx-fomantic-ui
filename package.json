@@ -32,7 +32,7 @@
     "ngx-highlightjs": "^4.1.1",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.5",
-    "tslib": "^2.0.1",
+    "tslib": "^2.4.0",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.11.6"
   },
@@ -44,7 +44,7 @@
     "@types/highlight.js": "^9.12.4",
     "@types/jasmine": "~3.5.12",
     "@types/jasminewd2": "~2.0.8",
-    "@types/node": "^12.11.1",
+    "@types/node": "^16.11.7",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~4.2.0",
     "jasmine-spec-reporter": "~5.0.2",
