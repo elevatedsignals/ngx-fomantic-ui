@@ -152,7 +152,6 @@
       }
     }
   },
-  "defaultProject": "ngx-fomantic-ui",
   "cli": {
     "packageManager": "npm"
   }
