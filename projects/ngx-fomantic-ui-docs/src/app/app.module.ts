@@ -41,38 +41,34 @@ export function cssLang() {
 
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    CommonModule,
-
-    HighlightModule,
-
-    FuiSidebarModule,
-    FuiPopupModule,
-
-    DemoRoutingModule,
-    DemoComponentsModule,
-    DemoModalsModule,
-    DemoPagesModule
-  ],
-  declarations: [AppComponent],
-  providers: [
-    {
-      provide: HIGHLIGHT_OPTIONS,
-      useValue: {
-        coreLibraryLoader: loadHighlightLibCore,
-        languages: {
-          xml: xmlLang,
-          typescript: typescriptLang,
-          javascript: javascriptLang,
-          bash: bashLang,
-          markup: cssLang
+    imports: [
+        BrowserModule,
+        CommonModule,
+        HighlightModule,
+        FuiSidebarModule,
+        FuiPopupModule,
+        DemoRoutingModule,
+        DemoComponentsModule,
+        DemoModalsModule,
+        DemoPagesModule
+    ],
+    declarations: [AppComponent],
+    providers: [
+        {
+            provide: HIGHLIGHT_OPTIONS,
+            useValue: {
+                coreLibraryLoader: loadHighlightLibCore,
+                languages: {
+                    xml: xmlLang,
+                    typescript: typescriptLang,
+                    javascript: javascriptLang,
+                    bash: bashLang,
+                    markup: cssLang
+                }
+            }
         }
-      }
-    }
-  ],
-  entryComponents: [AppComponent],
-  bootstrap: [AppComponent]
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

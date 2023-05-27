@@ -8,26 +8,23 @@ import {FuiPopup} from './components/popup';
 import {FuiPopupConfig} from './services/popup.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FuiTransitionModule,
-    FuiUtilityModule
-  ],
-  declarations: [
-    FuiPopupDirective,
-    FuiPopupArrow,
-    FuiPopup
-  ],
-  exports: [
-    FuiPopupDirective,
-    FuiPopup
-  ],
-  providers: [
-    FuiPopupConfig
-  ],
-  entryComponents: [
-    FuiPopup
-  ]
+    imports: [
+        CommonModule,
+        FuiTransitionModule,
+        FuiUtilityModule
+    ],
+    declarations: [
+        FuiPopupDirective,
+        FuiPopupArrow,
+        FuiPopup
+    ],
+    exports: [
+        FuiPopupDirective,
+        FuiPopup
+    ],
+    providers: [
+        FuiPopupConfig
+    ]
 })
 
 export class FuiPopupModule {

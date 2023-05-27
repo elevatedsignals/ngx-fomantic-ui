@@ -10,28 +10,24 @@ import {FuiMessageGlobalContainer} from './components/message-global-container';
 import {FuiMessageService} from './services/message-service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FuiTransitionModule,
-    FuiProgressModule,
-    FuiUtilityModule
-  ],
-  declarations: [
-    FuiMessage,
-    FuiMessageContainer,
-    FuiMessageGlobalContainer
-  ],
-  exports: [
-    FuiMessage,
-    FuiMessageContainer
-  ],
-  providers: [
-    FuiMessageService
-  ],
-  entryComponents: [
-    FuiMessage,
-    FuiMessageGlobalContainer
-  ]
+    imports: [
+        CommonModule,
+        FuiTransitionModule,
+        FuiProgressModule,
+        FuiUtilityModule
+    ],
+    declarations: [
+        FuiMessage,
+        FuiMessageContainer,
+        FuiMessageGlobalContainer
+    ],
+    exports: [
+        FuiMessage,
+        FuiMessageContainer
+    ],
+    providers: [
+        FuiMessageService
+    ]
 })
 export class FuiMessageModule {
 }

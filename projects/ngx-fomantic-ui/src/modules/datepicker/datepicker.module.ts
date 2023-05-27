@@ -20,38 +20,33 @@ import {
 } from './directives/datepicker.directive';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    FuiPopupModule,
-    FuiLocalizationModule,
-    FuiUtilityModule
-  ],
-  declarations: [
-    FuiCalendarItem,
-
-    FuiCalendarViewTitle,
-    FuiCalendarYearView,
-    FuiCalendarMonthView,
-    FuiCalendarDateView,
-    FuiCalendarHourView,
-    FuiCalendarMinuteView,
-
-    FuiDatepicker,
-    FuiDatepickerDirective,
-    FuiDatepickerDirectiveValueAccessor,
-    FuiDatepickerDirectiveValidator,
-    FuiDatepickerInputDirective
-  ],
-  exports: [
-    FuiDatepickerDirective,
-    FuiDatepickerDirectiveValueAccessor,
-    FuiDatepickerDirectiveValidator,
-    FuiDatepickerInputDirective
-  ],
-  entryComponents: [
-    FuiDatepicker
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        FuiPopupModule,
+        FuiLocalizationModule,
+        FuiUtilityModule
+    ],
+    declarations: [
+        FuiCalendarItem,
+        FuiCalendarViewTitle,
+        FuiCalendarYearView,
+        FuiCalendarMonthView,
+        FuiCalendarDateView,
+        FuiCalendarHourView,
+        FuiCalendarMinuteView,
+        FuiDatepicker,
+        FuiDatepickerDirective,
+        FuiDatepickerDirectiveValueAccessor,
+        FuiDatepickerDirectiveValidator,
+        FuiDatepickerInputDirective
+    ],
+    exports: [
+        FuiDatepickerDirective,
+        FuiDatepickerDirectiveValueAccessor,
+        FuiDatepickerDirectiveValidator,
+        FuiDatepickerInputDirective
+    ]
 })
 export class FuiDatepickerModule {
 }

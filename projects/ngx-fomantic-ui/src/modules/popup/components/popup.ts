@@ -26,6 +26,8 @@ import {TemplatePopupConfig} from '../classes/popup-template-controller';
 `,
   styles: [`
 .ui.popup {
+    position: absolute;
+    width: max-content;
     /* Autofit popup to the contents. */
     right: auto;
     margin: 0;
@@ -41,20 +43,6 @@ import {TemplatePopupConfig} from '../classes/popup-template-controller';
 .ui.popup::before {
     /* Hide the Fomantic UI CSS arrow. */
     display: none;
-}
-
-/* Offset popup by 0.75em above and below when placed 'vertically'. */
-.ui.popup[direction="top"],
-.ui.popup[direction="bottom"] {
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-}
-
-/* Offset popup by 0.75em either side when placed 'horizontally'. */
-.ui.popup[direction="left"],
-.ui.popup[direction="right"] {
-    margin-left: 0.75em;
-    margin-right: 0.75em;
 }
 `]
 })

@@ -1,37 +1,46 @@
-import {ElementRef} from '@angular/core';
-import Popper, {Data, Modifiers, Placement, PopperOptions} from 'popper.js';
+import { ElementRef } from "@angular/core";
+import {
+  autoPlacement,
+  computePosition,
+  ComputePositionReturn,
+  Placement,
+  Middleware,
+  shift,
+  offset,
+  autoUpdate,
+  arrow,
+} from "@floating-ui/dom";
+import { ar } from "date-fns/locale";
 
-type PopperModifiers = Modifiers & {
-  computeStyle?: {
-    gpuAcceleration: boolean;
-  };
-};
-type PopperInstance = Popper & {
-  options: PopperOptions & {
-    modifiers: PopperModifiers;
-  };
-};
-
-export type PositioningPlacement = 'auto' |
-  'top left' | 'top' | 'top right' |
-  'bottom left' | 'bottom' | 'bottom right' |
-  'left top' | 'left' | 'left bottom' |
-  'right top' | 'right' | 'right bottom';
+export type PositioningPlacement =
+  | "auto"
+  | "top left"
+  | "top"
+  | "top right"
+  | "bottom left"
+  | "bottom"
+  | "bottom right"
+  | "left top"
+  | "left"
+  | "left bottom"
+  | "right top"
+  | "right"
+  | "right bottom";
 
 export const PositioningPlacement = {
-  Auto: 'auto' as PositioningPlacement,
-  TopLeft: 'top left' as PositioningPlacement,
-  Top: 'top' as PositioningPlacement,
-  TopRight: 'top right' as PositioningPlacement,
-  LeftTop: 'left top' as PositioningPlacement,
-  Left: 'left' as PositioningPlacement,
-  LeftBottom: 'left bottom' as PositioningPlacement,
-  BottomLeft: 'bottom left' as PositioningPlacement,
-  Bottom: 'bottom' as PositioningPlacement,
-  BottomRight: 'bottom right' as PositioningPlacement,
-  RightTop: 'right top' as PositioningPlacement,
-  Right: 'right' as PositioningPlacement,
-  RightBottom: 'right bottom' as PositioningPlacement
+  Auto: "auto" as PositioningPlacement,
+  TopLeft: "top left" as PositioningPlacement,
+  Top: "top" as PositioningPlacement,
+  TopRight: "top right" as PositioningPlacement,
+  LeftTop: "left top" as PositioningPlacement,
+  Left: "left" as PositioningPlacement,
+  LeftBottom: "left bottom" as PositioningPlacement,
+  BottomLeft: "bottom left" as PositioningPlacement,
+  Bottom: "bottom" as PositioningPlacement,
+  BottomRight: "bottom right" as PositioningPlacement,
+  RightTop: "right top" as PositioningPlacement,
+  Right: "right" as PositioningPlacement,
+  RightBottom: "right bottom" as PositioningPlacement,
 };
 
 export interface IPositionBoundingBox {
@@ -131,7 +140,7 @@ export class PositioningService {
     return popperToPlacement(this._popperState.placement);
   }
 
-  public get state(): Data {
+  public get state(): ComputePositionReturn {
     return this._popperState;
   }
 

@@ -173,10 +173,6 @@ export abstract class FuiPopupController implements IPopup, OnDestroy {
   protected cleanup(): void {
     clearTimeout(this._openingTimeout);
 
-    if (this._componentRef.instance && this._componentRef.instance.positioningService) {
-      this._componentRef.instance.positioningService.destroy();
-    }
-
     this._componentFactory.detachFromApplication(this._componentRef);
 
     if (this._documentListener) {

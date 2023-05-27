@@ -3,10 +3,10 @@
   "dest": "../../dist/ngx-fomantic-ui",
   "allowedNonPeerDependencies": [
     "date-fns",
-    "element-closest",
-    "popper.js"
+    "element-closest"
   ],
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/index.ts"
   }
 }
+
