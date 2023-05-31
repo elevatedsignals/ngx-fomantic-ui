@@ -1,4 +1,4 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : Portuguese (pt)
@@ -8,47 +8,71 @@ import {IPartialLocaleValues} from './interfaces/values';
 const pt: IPartialLocaleValues = {
   datepicker: {
     months: [
-      'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro",
     ],
     monthsShort: [
-      'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'
+      "jan",
+      "fev",
+      "mar",
+      "abr",
+      "mai",
+      "jun",
+      "jul",
+      "ago",
+      "set",
+      "out",
+      "nov",
+      "dez",
     ],
     weekdays: [
-      'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'
+      "Domingo",
+      "Segunda",
+      "Terça",
+      "Quarta",
+      "Quinta",
+      "Sexta",
+      "Sábado",
     ],
-    weekdaysShort: [
-      'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'
-    ],
-    weekdaysNarrow: [
-      'D', '1', '2', '3', '4', '5', 'S'
-    ],
+    weekdaysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+    weekdaysNarrow: ["D", "1", "2", "3", "4", "5", "S"],
     formats: {
-      time: 'HH:mm',
-      datetime: 'D MMMM [de] YYYY HH:mm',
-      date: 'D [de] MMMM [de] YYYY',
-      month: 'MMMM [de] YYYY',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "d MMMM 'de' yyyy HH:mm",
+      date: "d 'de' MMMM 'de' yyyy",
+      month: "MMMM 'de' yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 1
+    firstDayOfWeek: 1,
   },
   search: {
-    placeholder: 'Pesquisar...',
+    placeholder: "Pesquisar...",
     noResults: {
-      header: 'Sem resultados',
-      message: 'Sua pesquisa não retornou resultados.'
-    }
+      header: "Sem resultados",
+      message: "Sua pesquisa não retornou resultados.",
+    },
   },
   select: {
-    noResultsMessage: 'Sem resultados',
+    noResultsMessage: "Sem resultados",
     single: {
-      placeholder: 'Escolha uma opção'
+      placeholder: "Escolha uma opção",
     },
     multi: {
-      placeholder: 'Escolher...',
-      maxSelectedMessage: 'Max #{max} opçãoes',
-      selectedMessage: '#{count} selections'
-    }
-  }
+      placeholder: "Escolher...",
+      maxSelectedMessage: "Max #{max} opçãoes",
+      selectedMessage: "#{count} selections",
+    },
+  },
 };
 
 export default pt;

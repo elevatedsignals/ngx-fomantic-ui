@@ -1,4 +1,4 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : Russian (ru)
@@ -8,47 +8,71 @@ import {IPartialLocaleValues} from './interfaces/values';
 const ru: IPartialLocaleValues = {
   datepicker: {
     months: [
-      'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+      "Январь",
+      "Февраль",
+      "Март",
+      "Апрель",
+      "Май",
+      "Июнь",
+      "Июль",
+      "Август",
+      "Сентябрь",
+      "Октябрь",
+      "Ноябрь",
+      "Декабрь",
     ],
     monthsShort: [
-      'Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Ноя', 'Дек'
+      "Янв",
+      "Февр",
+      "Март",
+      "Апр",
+      "Май",
+      "Июнь",
+      "Июль",
+      "Авг",
+      "Сент",
+      "Окт",
+      "Ноя",
+      "Дек",
     ],
     weekdays: [
-      'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'
+      "Воскресенье",
+      "Понедельник",
+      "Вторник",
+      "Среда",
+      "Четверг",
+      "Пятница",
+      "Суббота",
     ],
-    weekdaysShort: [
-      'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'
-    ],
-    weekdaysNarrow: [
-      'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'
-    ],
+    weekdaysShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    weekdaysNarrow: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
     formats: {
-      time: 'HH:mm',
-      datetime: 'DD.MM.YYYY HH:mm',
-      date: 'DD.MM.YYYY',
-      month: 'MMMM YYYY',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "dd.MM.yyyy HH:mm",
+      date: "dd.MM.yyyy",
+      month: "MMMM yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 1
+    firstDayOfWeek: 1,
   },
   search: {
-    placeholder: 'Поиск...',
+    placeholder: "Поиск...",
     noResults: {
-      header: 'Нет результатов',
-      message: 'Поиск не дал результатов.'
-    }
+      header: "Нет результатов",
+      message: "Поиск не дал результатов.",
+    },
   },
   select: {
-    noResultsMessage: 'Нет результатов',
+    noResultsMessage: "Нет результатов",
     single: {
-      placeholder: 'Выберите одно значение'
+      placeholder: "Выберите одно значение",
     },
     multi: {
-      placeholder: 'Выберите...',
-      maxSelectedMessage: 'Не более #{max} значений',
-      selectedMessage: '#{count} selections'
-    }
-  }
+      placeholder: "Выберите...",
+      maxSelectedMessage: "Не более #{max} значений",
+      selectedMessage: "#{count} selections",
+    },
+  },
 };
 
 export default ru;

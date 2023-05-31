@@ -1,64 +1,91 @@
-import {IDatepickerLocaleValues} from '../../../behaviors/localization/internal';
-import {format, parse} from 'date-fns';
-import * as defaultLocale from 'date-fns';
+import { IDatepickerLocaleValues } from "../../../behaviors/localization/internal";
+import { format, parse } from "date-fns";
+import defaultLocale from "date-fns/locale/en-GB";
 
 interface IDateFnsLocaleValues {
   [name: string]: string[];
 }
 
 interface IDateFnsHelperOptions {
-  type: string;
+  width: string;
 }
 
 type DateFnsHelper<U, T> = (value: U, options: IDateFnsHelperOptions) => T;
 type DateFnsWeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+type LocalePatternWidth =
+  | 'narrow'
+  | 'short'
+  | 'abbreviated'
+  | 'wide'
+  | 'any'
 
 interface IDateFnsCustomLocale {
-  localize: {
-    weekday: DateFnsHelper<number, string>;
-    weekdays: DateFnsHelper<IDateFnsHelperOptions, string[]>;
-    month: DateFnsHelper<number, string>;
-    months: DateFnsHelper<IDateFnsHelperOptions, string[]>;
-    timeOfDay: DateFnsHelper<number, string>;
-    timesOfDay: DateFnsHelper<IDateFnsHelperOptions, string[]>;
+  code?: string;
+  formatDistance?: (...args: Array<any>) => any;
+  formatRelative?: (...args: Array<any>) => any;
+  localize?: {
+    ordinalNumber: (...args: Array<any>) => any;
+    era: (...args: Array<any>) => any;
+    quarter: (...args: Array<any>) => any;
+    month: (...args: Array<any>) => any;
+    day: (...args: Array<any>) => any;
+    dayPeriod: (...args: Array<any>) => any;
   };
-  match: {
-    weekdays: DateFnsHelper<string, RegExpMatchArray | null>;
-    weekday?: DateFnsHelper<RegExpMatchArray, number>;
-    months: DateFnsHelper<string, RegExpMatchArray | null>;
-    month?: DateFnsHelper<RegExpMatchArray, number>;
-    timesOfDay: DateFnsHelper<string, RegExpMatchArray | null>;
-    timeOfDay?: DateFnsHelper<RegExpMatchArray, number>;
+  formatLong?: {
+    date: (...args: Array<any>) => any;
+    time: (...args: Array<any>) => any;
+    dateTime: (...args: Array<any>) => any;
+  };
+  match?: {
+    ordinalNumber: (...args: Array<any>) => any;
+    era: (...args: Array<any>) => any;
+    quarter: (...args: Array<any>) => any;
+    month: (...args: Array<any>) => any;
+    day: (...args: Array<any>) => any;
+    dayPeriod: (...args: Array<any>) => any;
   };
   options?: {
-    weekStartsOn?: number;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   };
 }
 
-function buildLocalizeFn(values: IDateFnsLocaleValues,
-                         defaultType: string,
-                         indexCallback?: (oldIndex: number) => number): DateFnsHelper<number, string> {
-
-  return (dirtyIndex: number, {type} = {type: defaultType}) => {
+function buildLocalizeFn(
+  values: IDateFnsLocaleValues,
+  defaultType: LocalePatternWidth,
+  indexCallback?: (oldIndex: number) => number
+): DateFnsHelper<number, string> {
+  return (dirtyIndex: number, { width } = { width: defaultType }) => {
     const index = indexCallback ? indexCallback(dirtyIndex) : dirtyIndex;
-    return values[`${type}`][index];
+
+    return values[width][index];
   };
 }
 
-function buildLocalizeArrayFn(values: IDateFnsLocaleValues, defaultType: string): DateFnsHelper<IDateFnsHelperOptions, string[]> {
-  return ({type} = {type: defaultType}) => values[`${type}`];
+function buildLocalizeArrayFn(
+  values: IDateFnsLocaleValues,
+  defaultType: string
+): DateFnsHelper<IDateFnsHelperOptions, string[]> {
+  return ({ width } = { width: defaultType }) => values[`${width}`];
 }
 
-function buildMatchFn(patterns: IDateFnsLocaleValues, defaultType: string): DateFnsHelper<string, RegExpMatchArray | null> {
-  return (dirtyString, {type} = {type: defaultType}) =>
-    dirtyString.match(`^(${patterns[`${type}`].join('|')})`);
+function buildMatchFn(
+  patterns: IDateFnsLocaleValues,
+  defaultType: string
+): DateFnsHelper<string, RegExpMatchArray | null> {
+  return (dirtyString, { width } = { width: defaultType }) => {
+    return dirtyString.match(`^(${patterns[`${width}`].join("|")})`);
+  };
 }
 
-function buildParseFn(patterns: IDateFnsLocaleValues, defaultType: string): DateFnsHelper<RegExpMatchArray, number> {
-  return ([, result], {type} = {type: defaultType}) =>
-    (patterns[`${type}`] || patterns[defaultType])
-      .map(p => new RegExp(`^${p}`))
-      .findIndex(pattern => pattern.test(result));
+function buildParseFn(
+  patterns: IDateFnsLocaleValues,
+  defaultType: string
+): DateFnsHelper<RegExpMatchArray, number> {
+  return ([, result], { width } = { width: defaultType }) =>
+    (patterns[`${width}`] || patterns[defaultType])
+      .map((p) => new RegExp(`^${p}`))
+      .findIndex((pattern) => pattern.test(result));
 }
 
 export class DateFnsParser {
@@ -70,57 +97,62 @@ export class DateFnsParser {
 
     const weekdayValues = {
       long: locale.weekdays,
+      wide: locale.weekdays,
       short: locale.weekdaysShort,
-      narrow: locale.weekdaysNarrow
+      narrow: locale.weekdaysNarrow,
     };
 
     const monthValues = {
       long: locale.months,
-      short: locale.monthsShort
+      wide: locale.months,
+      short: locale.monthsShort,
     };
 
     const timeOfDayValues = {
       long: locale.timesOfDay,
+      wide: locale.timesOfDay,
       uppercase: locale.timesOfDayUppercase,
-      lowercase: locale.timesOfDayLowercase
+      lowercase: locale.timesOfDayLowercase,
     };
 
     const timeOfDayMatchValues = {
       long: locale.timesOfDay,
-      short: locale.timesOfDayUppercase.concat(locale.timesOfDayLowercase)
+      wide: locale.timesOfDay,
+      short: locale.timesOfDayUppercase.concat(locale.timesOfDayLowercase),
     };
 
-    this._locale = defaultLocale as any;
+    this._locale = defaultLocale;
+
     this._locale.localize = {
       ...this._locale.localize,
       ...{
-        weekday: buildLocalizeFn(weekdayValues, 'long'),
-        weekdays: buildLocalizeArrayFn(weekdayValues, 'long'),
-        month: buildLocalizeFn(monthValues, 'long'),
-        months: buildLocalizeArrayFn(monthValues, 'long'),
-        timeOfDay: buildLocalizeFn(timeOfDayValues, 'long', (hours: number) => {
+        weekday: buildLocalizeFn(weekdayValues, "wide"),
+        weekdays: buildLocalizeArrayFn(weekdayValues, "long"),
+        month: buildLocalizeFn(monthValues, "wide"),
+        months: buildLocalizeArrayFn(monthValues, "long"),
+        timeOfDay: buildLocalizeFn(timeOfDayValues, "wide", (hours: number) => {
           return hours / 12 >= 1 ? 1 : 0;
         }),
-        timesOfDay: buildLocalizeArrayFn(timeOfDayValues, 'long')
-      }
+        timesOfDay: buildLocalizeArrayFn(timeOfDayValues, "long"),
+      },
     };
     this._locale.match = {
       ...this._locale.match,
       ...{
-        weekdays: buildMatchFn(weekdayValues, 'long'),
-        weekday: buildParseFn(weekdayValues, 'long'),
-        months: buildMatchFn(monthValues, 'long'),
-        month: buildParseFn(monthValues, 'long'),
-        timesOfDay: buildMatchFn(timeOfDayMatchValues, 'long'),
-        timeOfDay: buildParseFn(timeOfDayMatchValues, 'long')
-      }
+        weekdays: buildMatchFn(weekdayValues, "long"),
+        weekday: buildParseFn(weekdayValues, "long"),
+        months: buildMatchFn(monthValues, "long"),
+        month: buildParseFn(monthValues, "long"),
+        timesOfDay: buildMatchFn(timeOfDayMatchValues, "long"),
+        timeOfDay: buildParseFn(timeOfDayMatchValues, "long"),
+      },
     };
   }
 
-  private get _config(): any {
+  private get _config() {
     return {
       weekStartsOn: this._weekStartsOn,
-      locale: this._locale
+      locale: this._locale,
     };
   }
 
@@ -129,6 +161,6 @@ export class DateFnsParser {
   }
 
   public parse(dS: string, f: string, bD: Date): Date {
-    return parse(dS, this._config, new Date());
+    return parse(dS, f, new Date(), this._config);
   }
 }

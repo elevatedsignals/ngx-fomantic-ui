@@ -2,8 +2,8 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ngx-fomantic-ui",
   "allowedNonPeerDependencies": [
-    "date-fns",
-    "element-closest"
+    "@floating-ui/dom",
+    "date-fns"
   ],
   "lib": {
     "entryFile": "src/index.ts"

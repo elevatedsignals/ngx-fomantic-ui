@@ -1,6 +1,9 @@
-import {DateFnsParser} from '../helpers/date-fns';
-import {IDatepickerFormatsLocaleValues, IDatepickerLocaleValues} from '../../../behaviors/localization/internal';
-import { DatepickerMode } from '../helpers/date-picker-mode';
+import { DateFnsParser } from "../helpers/date-fns";
+import {
+  IDatepickerFormatsLocaleValues,
+  IDatepickerLocaleValues,
+} from "../../../behaviors/localization/internal";
+import { DatepickerMode } from "../helpers/date-picker-mode";
 
 export class DateParser {
   private _format: string;
@@ -23,11 +26,11 @@ export class DateParser {
 export class InternalDateParser extends DateParser {
   constructor(mode: DatepickerMode, locale: IDatepickerLocaleValues) {
     const internalFormats: IDatepickerFormatsLocaleValues = {
-      time: 'HH:mm',
-      datetime: 'YYYY-MM-DDTHH:mm',
-      date: 'YYYY-MM-DD',
-      month: 'YYYY-MM',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "yyyy-MM-ddTHH:mm",
+      date: "yyyy-MM-dd",
+      month: "yyyy-MM",
+      year: "yyyy",
     };
 
     super(internalFormats[mode], locale);

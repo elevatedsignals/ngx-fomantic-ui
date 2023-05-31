@@ -188,6 +188,8 @@ export class FuiPopup implements IPopup {
 
       // Finally, set the popup to be closed.
       this._isOpen = false;
+
+      this.positioningService.destroy();
     }
   }
 

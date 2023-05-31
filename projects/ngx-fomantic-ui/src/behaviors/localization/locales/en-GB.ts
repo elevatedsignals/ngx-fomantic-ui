@@ -1,58 +1,76 @@
-import {ILocaleValues} from './interfaces/values';
+import { ILocaleValues } from "./interfaces/values";
 
 const enGB: ILocaleValues = {
   datepicker: {
     months: [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ],
     monthsShort: [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ],
     weekdays: [
-      'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
     ],
-    weekdaysShort: [
-      'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
-    ],
-    weekdaysNarrow: [
-      'S', 'M', 'T', 'W', 'T', 'F', 'S'
-    ],
-    timesOfDay: [
-      'a.m.', 'p.m.'
-    ],
-    timesOfDayUppercase: [
-      'AM', 'PM'
-    ],
-    timesOfDayLowercase: [
-      'am', 'pm'
-    ],
+    weekdaysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    weekdaysNarrow: ["S", "M", "T", "W", "T", "F", "S"],
+    timesOfDay: ["a.m.", "p.m."],
+    timesOfDayUppercase: ["AM", "PM"],
+    timesOfDayLowercase: ["am", "pm"],
     formats: {
-      time: 'h:mm A',
-      datetime: 'D MMMM YYYY h:mm A',
-      date: 'D MMMM YYYY',
-      month: 'MMMM YYYY',
-      year: 'YYYY'
+      time: "h:mm A",
+      datetime: "d MMMM yyyy h:mm A",
+      date: "d MMMM yyyy",
+      month: "MMMM yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 1
+    firstDayOfWeek: 1,
   },
   search: {
-    placeholder: 'Search...',
+    placeholder: "Search...",
     noResults: {
-      header: 'No Results',
-      message: 'Your search returned no results.'
-    }
+      header: "No Results",
+      message: "Your search returned no results.",
+    },
   },
   select: {
-    noResultsMessage: 'No results',
+    noResultsMessage: "No results",
     single: {
-      placeholder: 'Select one'
+      placeholder: "Select one",
     },
     multi: {
-      placeholder: 'Select...',
-      maxSelectedMessage: 'Max #{max} selections',
-      selectedMessage: '#{count} selections'
-    }
-  }
+      placeholder: "Select...",
+      maxSelectedMessage: "Max #{max} selections",
+      selectedMessage: "#{count} selections",
+    },
+  },
 };
 
 export default enGB;
