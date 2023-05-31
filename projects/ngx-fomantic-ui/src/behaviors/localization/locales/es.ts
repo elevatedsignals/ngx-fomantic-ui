@@ -1,4 +1,4 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : Spanish (es)
@@ -8,47 +8,71 @@ import {IPartialLocaleValues} from './interfaces/values';
 const es: IPartialLocaleValues = {
   datepicker: {
     months: [
-      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
     ],
     monthsShort: [
-      'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic",
     ],
     weekdays: [
-      'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'
+      "Domingo",
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sábado",
     ],
-    weekdaysShort: [
-      'Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'
-    ],
-    weekdaysNarrow: [
-      'D', 'L', 'M', 'M', 'J', 'V', 'S'
-    ],
+    weekdaysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+    weekdaysNarrow: ["D", "L", "M", "M", "J", "V", "S"],
     formats: {
-      time: 'HH:mm',
-      datetime: 'D [de] MMMM [de] YYYY HH:mm',
-      date: 'D [de] MMMM [de] YYYY',
-      month: 'MMMM [de] YYYY',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "d 'de' MMMM 'de' yyyy HH:mm",
+      date: "d 'de' MMMM 'de' yyyy",
+      month: "MMMM 'de' yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 1
+    firstDayOfWeek: 1,
   },
   search: {
-    placeholder: 'Buscar...',
+    placeholder: "Buscar...",
     noResults: {
-      header: 'Sin resultados',
-      message: 'La búsqueda no obtuvo resultados.'
-    }
+      header: "Sin resultados",
+      message: "La búsqueda no obtuvo resultados.",
+    },
   },
   select: {
-    noResultsMessage: 'Sin resultados',
+    noResultsMessage: "Sin resultados",
     single: {
-      placeholder: 'Seleccione uno'
+      placeholder: "Seleccione uno",
     },
     multi: {
-      placeholder: 'Seleccione...',
-      maxSelectedMessage: 'Puede elegir hasta #{max}',
-      selectedMessage: 'Seleccionados #{count}'
-    }
-  }
+      placeholder: "Seleccione...",
+      maxSelectedMessage: "Puede elegir hasta #{max}",
+      selectedMessage: "Seleccionados #{count}",
+    },
+  },
 };
 
 export default es;

@@ -1,16 +1,16 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 const enUS: IPartialLocaleValues = {
   datepicker: {
     firstDayOfWeek: 0,
     formats: {
-      time: 'h:mm A',
-      datetime: 'MMMM D, YYYY h:mm A',
-      date: 'MMMM D, YYYY',
-      month: 'MMMM YYYY',
-      year: 'YYYY'
-    }
-  }
+      time: "h:mm A",
+      datetime: "MMMM d, yyyy h:mm A",
+      date: "MMMM d, yyyy",
+      month: "MMMM yyyy",
+      year: "yyyy",
+    },
+  },
 };
 
 export default enUS;

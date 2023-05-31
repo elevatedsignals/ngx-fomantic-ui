@@ -1,4 +1,4 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : Hebrew (he)
@@ -8,47 +8,63 @@ import {IPartialLocaleValues} from './interfaces/values';
 const he: IPartialLocaleValues = {
   datepicker: {
     months: [
-      'ינואר', 'פבואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'
+      "ינואר",
+      "פבואר",
+      "מרץ",
+      "אפריל",
+      "מאי",
+      "יוני",
+      "יולי",
+      "אוגוסט",
+      "ספטמבר",
+      "אוקטובר",
+      "נובמבר",
+      "דצמבר",
     ],
     monthsShort: [
-      'ינו', 'פבו', 'מרץ', 'אפר', 'מאי', 'יונ', 'יול', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'
+      "ינו",
+      "פבו",
+      "מרץ",
+      "אפר",
+      "מאי",
+      "יונ",
+      "יול",
+      "אוג",
+      "ספט",
+      "אוק",
+      "נוב",
+      "דצמ",
     ],
-    weekdays: [
-      'ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'
-    ],
-    weekdaysShort: [
-      'ראש', 'שני', 'שלי', 'רבי', 'חמי', 'שיש', 'שבת'
-    ],
-    weekdaysNarrow: [
-      'ר', 'ש', 'ש', 'ר', 'ח', 'ש', 'ש'
-    ],
+    weekdays: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"],
+    weekdaysShort: ["ראש", "שני", "שלי", "רבי", "חמי", "שיש", "שבת"],
+    weekdaysNarrow: ["ר", "ש", "ש", "ר", "ח", "ש", "ש"],
     formats: {
-      time: 'HH:mm',
-      datetime: 'D MMMM YYYY HH:mm',
-      date: 'D MMMM YYYY',
-      month: 'MMMM YYYY',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "d MMMM yyyy HH:mm",
+      date: "d MMMM yyyy",
+      month: "MMMM yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 0
+    firstDayOfWeek: 0,
   },
   search: {
-    placeholder: 'חפש...',
+    placeholder: "חפש...",
     noResults: {
-      header: 'אין תוצאות',
-      message: 'החיפוש שלך לא אחזיר תוצאות.'
-    }
+      header: "אין תוצאות",
+      message: "החיפוש שלך לא אחזיר תוצאות.",
+    },
   },
   select: {
-    noResultsMessage: 'אין תוצאות',
+    noResultsMessage: "אין תוצאות",
     single: {
-      placeholder: 'בחר אחד'
+      placeholder: "בחר אחד",
     },
     multi: {
-      placeholder: 'בחר...',
-      maxSelectedMessage: 'מקסימום #{max} אפשרויות',
-      selectedMessage: '#{count} selections'
-    }
-  }
+      placeholder: "בחר...",
+      maxSelectedMessage: "מקסימום #{max} אפשרויות",
+      selectedMessage: "#{count} selections",
+    },
+  },
 };
 
 export default he;

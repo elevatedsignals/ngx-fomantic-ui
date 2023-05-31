@@ -1,4 +1,4 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : German (de)
@@ -8,47 +8,71 @@ import {IPartialLocaleValues} from './interfaces/values';
 const de: IPartialLocaleValues = {
   datepicker: {
     months: [
-      'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember",
     ],
     monthsShort: [
-      'Jan', 'Febr', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'
+      "Jan",
+      "Febr",
+      "Mar",
+      "Apr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Okt",
+      "Nov",
+      "Dez",
     ],
     weekdays: [
-      'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag",
     ],
-    weekdaysShort: [
-      'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'
-    ],
-    weekdaysNarrow: [
-      'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'
-    ],
+    weekdaysShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    weekdaysNarrow: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
     formats: {
-      time: 'HH:mm',
-      datetime: 'D. MMMM YYYY HH:mm',
-      date: 'D. MMMM YYYY',
-      month: 'MMMM YYYY',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "d. MMMM yyyy HH:mm",
+      date: "d. MMMM yyyy",
+      month: "MMMM yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 1
+    firstDayOfWeek: 1,
   },
   search: {
-    placeholder: 'Suchen...',
+    placeholder: "Suchen...",
     noResults: {
-      header: 'Keine Ergebnisse',
-      message: 'Ihre Suche ergab keine Ergebnisse.'
-    }
+      header: "Keine Ergebnisse",
+      message: "Ihre Suche ergab keine Ergebnisse.",
+    },
   },
   select: {
-    noResultsMessage: 'Keine Ergebnisse',
+    noResultsMessage: "Keine Ergebnisse",
     single: {
-      placeholder: 'Eintrag auswählen...'
+      placeholder: "Eintrag auswählen...",
     },
     multi: {
-      placeholder: 'Einträge auswählen...',
-      maxSelectedMessage: 'Höchstens #{max} Einträge',
-      selectedMessage: '#{count} Einträge ausgewählt'
-    }
-  }
+      placeholder: "Einträge auswählen...",
+      maxSelectedMessage: "Höchstens #{max} Einträge",
+      selectedMessage: "#{count} Einträge ausgewählt",
+    },
+  },
 };
 
 export default de;

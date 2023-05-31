@@ -15,8 +15,6 @@ import {
 import {FuiTransition, Transition, TransitionController, TransitionDirection} from '../../transition/internal';
 import {HandledEvent, IAugmentedElement, KeyCode} from '../../../misc/util/internal';
 import {DropdownAutoCloseType, DropdownService} from '../services/dropdown.service';
-// Polyfill for IE
-import 'element-closest';
 
 @Directive({
   // We must attach to every '.item' as Angular doesn't support > selectors.

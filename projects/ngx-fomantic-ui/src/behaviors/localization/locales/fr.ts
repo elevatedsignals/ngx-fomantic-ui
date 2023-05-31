@@ -1,4 +1,4 @@
-import {IPartialLocaleValues} from './interfaces/values';
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : French (fr)
@@ -8,47 +8,71 @@ import {IPartialLocaleValues} from './interfaces/values';
 const fr: IPartialLocaleValues = {
   datepicker: {
     months: [
-      'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+      "Janvier",
+      "Février",
+      "Mars",
+      "Avril",
+      "Mai",
+      "Juin",
+      "Juillet",
+      "Août",
+      "Septembre",
+      "Octobre",
+      "Novembre",
+      "Décembre",
     ],
     monthsShort: [
-      'Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'
+      "Janv",
+      "Févr",
+      "Mars",
+      "Avr",
+      "Mai",
+      "Juin",
+      "Juil",
+      "Août",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Déc",
     ],
     weekdays: [
-      'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'
+      "Dimanche",
+      "Lundi",
+      "Mardi",
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi",
     ],
-    weekdaysShort: [
-      'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'
-    ],
-    weekdaysNarrow: [
-      'Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'
-    ],
+    weekdaysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+    weekdaysNarrow: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"],
     formats: {
-      time: 'HH:mm',
-      datetime: 'D MMMM YYYY HH:mm',
-      date: 'D MMMM YYYY',
-      month: 'MMMM YYYY',
-      year: 'YYYY'
+      time: "HH:mm",
+      datetime: "d MMMM yyyy HH:mm",
+      date: "d MMMM yyyy",
+      month: "MMMM yyyy",
+      year: "yyyy",
     },
-    firstDayOfWeek: 1
+    firstDayOfWeek: 1,
   },
   search: {
-    placeholder: 'Cherche...',
+    placeholder: "Cherche...",
     noResults: {
-      header: 'Aucun Résultats',
-      message: 'Votre recherche n\'a pas donné de résultats.'
-    }
+      header: "Aucun Résultats",
+      message: "Votre recherche n'a pas donné de résultats.",
+    },
   },
   select: {
-    noResultsMessage: 'Aucun résultats',
+    noResultsMessage: "Aucun résultats",
     single: {
-      placeholder: 'Choisissez-en un'
+      placeholder: "Choisissez-en un",
     },
     multi: {
-      placeholder: 'Choisissez-en...',
-      maxSelectedMessage: 'Max #{max} sélections',
-      selectedMessage: '#{count} selections'
-    }
-  }
+      placeholder: "Choisissez-en...",
+      maxSelectedMessage: "Max #{max} sélections",
+      selectedMessage: "#{count} selections",
+    },
+  },
 };
 
 export default fr;
