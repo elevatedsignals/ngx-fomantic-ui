@@ -41,7 +41,7 @@ See the [Documentation](https://ngx-fomantic-ui.github.io/ngx-fomantic-ui) for i
 
 ## Dependencies
 
-* [Angular](https://angular.io) (^10.0.0)
+* [Angular](https://angular.io) (^15.0.0)
 * [Fomantic UI CSS](http://fomantic-ui.com/) (^2.7.4) (jQuery is **not** required)
 
 ## Component Support
@@ -98,7 +98,7 @@ $ npm run test
 
 ## Running Documentation Website on Docker
 
-The ngx-fomantic-ui [website](https://ngx-fomantic-ui.netlify.com/#/getting-started) sample project can run as a docker container. 
+The ngx-fomantic-ui [website](https://ngx-fomantic-ui.netlify.com/#/getting-started) sample project can run as a docker container.
 In order to run the website on docker, use the following commands (**run commands from the repo's root folder**):
 * `docker build -t ngx-fomantic-ui-docs:latest .` - building the ngx-fomantic-ui website image
 * `docker run -p <host-port>:4200 ngx-fomantic-ui-docs:latest` - starting the container, listening on *<host-port>* for your choice.
