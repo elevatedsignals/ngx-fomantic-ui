@@ -1,6 +1,6 @@
 {
   "name": "@elevatedsignals/ngx-fomantic-ui",
-  "version": "16.0.0",
+  "version": "16.0.2",
   "peerDependencies": {
     "@angular/common": "16.x",
     "@angular/core": "16.x"
