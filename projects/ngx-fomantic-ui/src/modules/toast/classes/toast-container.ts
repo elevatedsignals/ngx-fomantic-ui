@@ -5,18 +5,20 @@ import {FuiToastConfig} from './toast-config';
   selector: 'fui-toast-container',
   exportAs: 'fuiToastContainer',
   template: `
-    <fui-toast *ngFor="let toast of toastData"
-               [id]="toast.id"
-               [title]="toast.title"
-               [message]="toast.message"
-               [class]="toast.class"
-               [showProgress]="toast.showProgress"
-               [displayTime]="toast.displayTime"
-               [showIcon]="toast.showIcon"
-               [closeIcon]="toast.closeIcon"
-               [progressUp]="toast.progressUp"
-               [className]="toast.className"
-               (close)="closeToast(toast.id)"></fui-toast>`
+    @for (toast of toastData; track toast) {
+      <fui-toast
+        [id]="toast.id"
+        [title]="toast.title"
+        [message]="toast.message"
+        [class]="toast.class"
+        [showProgress]="toast.showProgress"
+        [displayTime]="toast.displayTime"
+        [showIcon]="toast.showIcon"
+        [closeIcon]="toast.closeIcon"
+        [progressUp]="toast.progressUp"
+        [className]="toast.className"
+      (close)="closeToast(toast.id)"></fui-toast>
+    }`
 })
 export class FuiToastContainer {
   toastData: Array<FuiToastConfig> = [];

@@ -8,20 +8,24 @@ import {TemplatePopupConfig} from '../classes/popup-template-controller';
   selector: 'fui-popup',
   template: `
 <div class="ui popup"
-     [ngClass]="dynamicClasses"
-     [fuiTransition]="transitionController"
-     [attr.direction]="direction"
-     #container>
+  [ngClass]="dynamicClasses"
+  [fuiTransition]="transitionController"
+  [attr.direction]="direction"
+  #container>
 
-    <ng-container *ngIf="!config.template && (!!config.header || !!config.text)">
-        <div class="header" *ngIf="config.header">{{ config.header }}</div>
-        <div class="content">{{ config.text }}</div>
-    </ng-container>
-    <div #templateSibling></div>
+  @if (!config.template && (!!config.header || !!config.text)) {
+    @if (config.header) {
+      <div class="header">{{ config.header }}</div>
+    }
+    <div class="content">{{ config.text }}</div>
+  }
+  <div #templateSibling></div>
 
-    <fui-popup-arrow *ngIf="!config.isBasic"
-                     [placement]="config.placement"
-                     [inverted]="config.isInverted"></fui-popup-arrow>
+  @if (!config.isBasic) {
+    <fui-popup-arrow
+      [placement]="config.placement"
+    [inverted]="config.isInverted"></fui-popup-arrow>
+  }
 </div>
 `,
   styles: [`

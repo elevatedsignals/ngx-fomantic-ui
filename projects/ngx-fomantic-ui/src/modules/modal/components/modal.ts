@@ -21,30 +21,32 @@ import {ModalConfig, ModalSize} from '../classes/modal-config';
   template: `
 <!-- Page dimmer for modal background. -->
 <fui-modal-dimmer [ngClass]="{'top aligned': !isCentered}"
-                  [class.inverted]="isInverted"
-                  [(isDimmed)]="dimBackground"
-                  [transitionDuration]="transitionDuration"
-                  (click)="close()">
+  [class.inverted]="isInverted"
+  [(isDimmed)]="dimBackground"
+  [transitionDuration]="transitionDuration"
+  (click)="close()">
 
-    <!-- Modal component, with transition component attached -->
-    <div class="ui modal"
-         [fuiTransition]="transitionController"
-         [class.active]="transitionController?.isVisible"
-         [class.fullscreen]="isFullScreen"
-         [class.basic]="isBasic"
-         [class.scrolling]="mustScroll"
-         [class.inverted]="isInverted"
-         [ngClass]="dynamicClasses"
-         (click)="onClick($event)"
-         #modal>
+  <!-- Modal component, with transition component attached -->
+  <div class="ui modal"
+    [fuiTransition]="transitionController"
+    [class.active]="transitionController?.isVisible"
+    [class.fullscreen]="isFullScreen"
+    [class.basic]="isBasic"
+    [class.scrolling]="mustScroll"
+    [class.inverted]="isInverted"
+    [ngClass]="dynamicClasses"
+    (click)="onClick($event)"
+    #modal>
 
-        <!-- Configurable close icon -->
-        <i class="close icon" *ngIf="isClosable" (click)="close()"></i>
-        <!-- <ng-content> so that <fui-modal> can be used as a normal component. -->
-        <ng-content></ng-content>
-        <!-- @ViewChild reference so we can insert elements beside this div. -->
-        <div #templateSibling></div>
-    </div>
+    <!-- Configurable close icon -->
+    @if (isClosable) {
+      <i class="close icon" (click)="close()"></i>
+    }
+    <!-- <ng-content> so that <fui-modal> can be used as a normal component. -->
+    <ng-content></ng-content>
+    <!-- @ViewChild reference so we can insert elements beside this div. -->
+    <div #templateSibling></div>
+  </div>
 </fui-modal-dimmer>
 `,
   styles: [``]

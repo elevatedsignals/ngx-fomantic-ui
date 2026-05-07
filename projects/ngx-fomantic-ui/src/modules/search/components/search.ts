@@ -22,27 +22,33 @@ import { IResultContext } from './result-context';
   selector: 'fui-search',
   template: `
 <div class="ui input" [class.icon]="hasIcon" (click)="onClick($event)">
-    <input class="prompt" type="text" [attr.placeholder]="placeholder" autocomplete="off" [(ngModel)]="query">
-    <i *ngIf="hasIcon" class="search icon"></i>
+  <input class="prompt" type="text" [attr.placeholder]="placeholder" autocomplete="off" [(ngModel)]="query">
+  @if (hasIcon) {
+    <i class="search icon"></i>
+  }
 </div>
 <div class="results"
-     fuiDropdownMenu
-     [menuTransition]="transition"
-     [menuTransitionDuration]="transitionDuration"
-     menuSelectedItemClass="active">
+  fuiDropdownMenu
+  [menuTransition]="transition"
+  [menuTransitionDuration]="transitionDuration"
+  menuSelectedItemClass="active">
 
-    <fui-search-result *ngFor="let r of results"
-                       class="item"
-                       [value]="r"
-                       [query]="query"
-                       [formatter]="resultFormatter"
-                       [template]="resultTemplate"
-                       (click)="select(r)"></fui-search-result>
+  @for (r of results; track r) {
+    <fui-search-result
+      class="item"
+      [value]="r"
+      [query]="query"
+      [formatter]="resultFormatter"
+      [template]="resultTemplate"
+    (click)="select(r)"></fui-search-result>
+  }
 
-    <div *ngIf="results.length == 0" class="message empty">
-        <div class="header">{{ localeValues.noResults.header }}</div>
-        <div class="description">{{ localeValues.noResults.message }}</div>
+  @if (results.length == 0) {
+    <div class="message empty">
+      <div class="header">{{ localeValues.noResults.header }}</div>
+      <div class="description">{{ localeValues.noResults.message }}</div>
     </div>
+  }
 </div>
 `,
   styles: [`

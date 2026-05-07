@@ -6,13 +6,23 @@ import {FuiLocalizationService} from '../../../behaviors/localization/internal';
 @Component({
   selector: 'fui-datepicker',
   template: `
-<ng-container [ngSwitch]="service.currentView">
-    <fui-calendar-year-view [service]="service" *ngSwitchCase="0"></fui-calendar-year-view>
-    <fui-calendar-month-view [service]="service" *ngSwitchCase="1"></fui-calendar-month-view>
-    <fui-calendar-date-view [service]="service" *ngSwitchCase="2"></fui-calendar-date-view>
-    <fui-calendar-hour-view [service]="service" *ngSwitchCase="3"></fui-calendar-hour-view>
-    <fui-calendar-minute-view [service]="service" *ngSwitchCase="4"></fui-calendar-minute-view>
-</ng-container>
+@switch (service.currentView) {
+  @case (0) {
+    <fui-calendar-year-view [service]="service"></fui-calendar-year-view>
+  }
+  @case (1) {
+    <fui-calendar-month-view [service]="service"></fui-calendar-month-view>
+  }
+  @case (2) {
+    <fui-calendar-date-view [service]="service"></fui-calendar-date-view>
+  }
+  @case (3) {
+    <fui-calendar-hour-view [service]="service"></fui-calendar-hour-view>
+  }
+  @case (4) {
+    <fui-calendar-minute-view [service]="service"></fui-calendar-minute-view>
+  }
+}
 `,
   styles: [`
 :host {

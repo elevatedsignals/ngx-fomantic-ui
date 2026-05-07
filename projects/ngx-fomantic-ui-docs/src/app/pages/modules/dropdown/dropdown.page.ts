@@ -65,7 +65,7 @@ const exampleStandardTemplate = `
     </div>
 </div>
 <button class="ui secondary button" (click)="isOpen = !isOpen">Toggle Dropdown</button>
-<fui-checkbox [(ngModel)]="isDisabled != isDisabled">Disabled?</fui-checkbox>
+<fui-checkbox [(ngModel)]="isDisabled">Disabled?</fui-checkbox>
 `;
 
 const exampleStyledTemplate = `

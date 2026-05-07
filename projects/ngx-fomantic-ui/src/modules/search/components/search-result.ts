@@ -6,7 +6,9 @@ import {IResultContext} from './result-context';
   selector: 'fui-search-result',
   template: `
 <span #templateSibling></span>
-<span *ngIf="!template" [innerHTML]="formatter(value, query)"></span>
+@if (!template) {
+  <span [innerHTML]="formatter(value, query)"></span>
+}
 `
 })
 export class FuiSearchResult<T> {

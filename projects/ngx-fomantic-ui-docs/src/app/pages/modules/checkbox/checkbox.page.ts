@@ -38,7 +38,7 @@ const exampleRadioButtonTemplate = `
         </div>
         <div class="field">
             <fui-radio-button name="example" [value]="{ example: 'object' }" [(ngModel)]="eRadio">
-                Value: {{ '{' }} example: "object" }
+                Value: {{ '{' }} example: "object" {{ '}' }}
             </fui-radio-button>
         </div>
     </div>

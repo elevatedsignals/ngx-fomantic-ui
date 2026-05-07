@@ -27,24 +27,27 @@ export class CalendarRangeMinuteService extends CalendarRangeService {
   selector: 'fui-calendar-minute-view',
   template: `
 <table class="ui celled center aligned unstackable table three column minute">
-<thead>
+  <thead>
     <tr>
-        <th colspan="4">
-            <fui-calendar-view-title [ranges]="ranges" (zoomOut)="zoomOut()">
-                {{ date }}
-            </fui-calendar-view-title>
-        </th>
+      <th colspan="4">
+        <fui-calendar-view-title [ranges]="ranges" (zoomOut)="zoomOut()">
+          {{ date }}
+        </fui-calendar-view-title>
+      </th>
     </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let group of ranges.current.groupedItems">
-        <td class="link"
-            *ngFor="let item of group"
+  </thead>
+  <tbody>
+    @for (group of ranges.current.groupedItems; track group) {
+      <tr>
+        @for (item of group; track item) {
+          <td class="link"
             [calendarItem]="item"
             (click)="setDate(item)">{{ item.humanReadable }}
-        </td>
-    </tr>
-</tbody>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
 </table>
 `
 })

@@ -3,7 +3,7 @@ import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHos
 
 @Component({
   selector: 'fui-rating',
-  template: `<i *ngFor="let icon of icons; let i = index" class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>`,
+  template: `@for (icon of icons; track icon; let i = $index) {<i class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>}`,
   styles: [`
 :host.read-only .icon {
     cursor: auto
