@@ -16,7 +16,7 @@ export class FuiModalDimmer extends FuiDimmer {
 
   @HostBinding('class.page')
   @HostBinding('class.modals')
-  public readonly hasClasses: boolean;
+  declare public readonly hasClasses: boolean;
 
   constructor(renderer: Renderer2, element: ElementRef, changeDetector: ChangeDetectorRef) {
     super(renderer, element, changeDetector);

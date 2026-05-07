@@ -126,7 +126,11 @@ export class PositioningService {
   private _popperState: ComputePositionReturn;
   private _arrowSelector: string | undefined;
   private _middleware: Middleware[] = [];
-  private _cleanUp: () => void;
+  private _cleanUp: (() => void) | undefined;
+  // Set when destroy() runs, so any in-flight computePosition().then() callback
+  // (autoUpdate's cleanup only stops *new* triggers, not the promise it just enqueued)
+  // can bail before touching DOM that has since been torn down.
+  private _isDestroyed = false;
 
   constructor(
     anchor: ElementRef,
@@ -196,22 +200,35 @@ export class PositioningService {
 
     this._cleanUp = autoUpdate(this.anchor.nativeElement, this.subject.nativeElement, () => {
       this.calculatePostion().then((computePositionReturn) => {
+        // The popup may have been destroyed while computePosition was awaiting —
+        // its host elements are now detached/null and writing to .style throws.
+        if (this._isDestroyed) {
+          return;
+        }
+
+        const subjectEl = this.subject.nativeElement as HTMLElement | null;
+        if (!subjectEl) {
+          return;
+        }
+
         const blah = this.calculateOffsets();
 
-        Object.assign(this.subject.nativeElement.style, {
+        Object.assign(subjectEl.style, {
           left: `${computePositionReturn.x + blah.left}px`,
           top: `${computePositionReturn.y + blah.top}px`,
         });
 
-        if (computePositionReturn.middlewareData.arrow) {
+        if (computePositionReturn.middlewareData.arrow && this._arrowSelector) {
           const { x, y } = computePositionReturn.middlewareData.arrow;
 
-          const pointerArrow = document.querySelector(this._arrowSelector);
+          const pointerArrow = document.querySelector(this._arrowSelector) as HTMLElement | null;
 
-          Object.assign((pointerArrow as HTMLElement).style, {
-            left: x != null ? `${x}px` : "",
-            top: y != null ? `${y}px` : "",
-          });
+          if (pointerArrow) {
+            Object.assign(pointerArrow.style, {
+              left: x != null ? `${x}px` : "",
+              top: y != null ? `${y}px` : "",
+            });
+          }
         }
 
         this._popperState = computePositionReturn;
@@ -244,7 +261,11 @@ export class PositioningService {
   }
 
   public destroy(): void {
-    this._cleanUp();
+    this._isDestroyed = true;
+    if (this._cleanUp) {
+      this._cleanUp();
+      this._cleanUp = undefined;
+    }
   }
 
   private calculateOffsets(): { top: number; left: number } {

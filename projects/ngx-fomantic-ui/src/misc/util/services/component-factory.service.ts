@@ -5,7 +5,7 @@ import {
   Injectable,
   Injector,
   Provider,
-  ReflectiveInjector,
+  StaticProvider,
   TemplateRef,
   Type,
   ViewContainerRef
@@ -26,11 +26,24 @@ export class FuiComponentFactory {
     // Resolve a factory for creating components of type `type`.
     const factory = this._componentFactoryResolver.resolveComponentFactory(type as Type<T>);
 
+    const staticProviders: StaticProvider[] = providers.map(provider => {
+      if ((provider as any).provide) { // ClassProvider, ValueProvider, FactoryProvider, etc.
+        return {
+          provide: (provider as any).provide,
+          useFactory: (provider as any).useFactory,
+          deps: (provider as any).deps || [],
+          useValue: (provider as any).useValue,
+          useClass: (provider as any).useClass,
+          useExisting: (provider as any).useExisting,
+          multi: (provider as any).multi,
+        };
+      } else { // Type<any>
+        return {provide: provider, useClass: provider as Type<any>, deps: []};
+      }
+    });
+
     // Resolve and create an injector with the specified providers.
-    const injector = ReflectiveInjector.resolveAndCreate(
-      providers,
-      this._injector
-    );
+    const injector = Injector.create({providers: staticProviders, parent: this._injector});
 
     // Create a component using the previously resolved factory & injector.
     const componentRef = factory.create(injector);

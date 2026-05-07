@@ -65,7 +65,7 @@ export class FuiMultiSelect<T, U> extends FuiSelectBase<T, U> implements ICustom
   @Input()
   public maxSelected: number;
   @HostBinding('class.multiple')
-  public readonly hasClasses: boolean;
+  declare public readonly hasClasses: boolean;
   // Stores the values written by ngModel before it can be matched to an option from `options`.
   private _writtenOptions?: U[];
 
