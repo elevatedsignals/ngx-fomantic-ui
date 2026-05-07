@@ -33,7 +33,7 @@ Angular and jQuery don't go together - this is the fundamental principal of this
 
 Note that only Fomantic UI elements that use jQuery are recreated here - those written purely in CSS aren't included as they can be used in Angular apps already.
 
-**This is a fork of [edcarroll](https://github.com/edcarroll)'s [ng2-semantic-ui](https://github.com/edcarroll/ng2-semantic-ui), updated to Angular 7 and Fomantic UI.**
+**This is a fork of [edcarroll](https://github.com/edcarroll)'s [ng2-semantic-ui](https://github.com/edcarroll/ng2-semantic-ui), kept current with Angular and Fomantic UI.**
 
 ## Installation & Usage
 
@@ -77,23 +77,22 @@ See the [Documentation](https://ngx-fomantic-ui.github.io/ngx-fomantic-ui) for i
 
 ## Development
 
-To generate all library files:
+To build the library (including the locale post-process step):
 
 ```bash
-$ npm run lib:compile
-# use lib:compile:w to watch for changes
+$ npm run build:lib:prod
 ```
 
-To run the demo app:
+To run the documentation app:
 ```bash
-$ npm run demo:serve
+$ npm run serve:docs
 ```
 
 ## Testing
 
 To run the unit tests suite:
 ```bash
-$ npm run test
+$ npm test -- --watch=false --browsers=ChromeHeadless
 ```
 
 ## Running Documentation Website on Docker
