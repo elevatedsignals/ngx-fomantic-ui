@@ -171,7 +171,6 @@ export class FuiDatepickerDirective
     }
 
     // Angular expects null
-    // tslint:disable-next-line:no-null-keyword
     return null;
   }
 

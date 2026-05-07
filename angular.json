@@ -30,14 +30,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-fomantic-ui/tsconfig.lib.json",
-              "projects/ngx-fomantic-ui/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-fomantic-ui/**/*.ts",
+              "projects/ngx-fomantic-ui/**/*.html"
             ]
           }
         }
@@ -74,10 +71,12 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "projects/ngx-fomantic-ui-docs/src/environments/environment.ts",
-                "with": "projects/ngx-fomantic-ui-docs/src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-fomantic-ui-docs/src/environments/environment.ts",
+                  "with": "projects/ngx-fomantic-ui-docs/src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -87,7 +86,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
+              "budgets": [
+                {
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -138,14 +138,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-fomantic-ui-docs/tsconfig.app.json",
-              "projects/ngx-fomantic-ui-docs/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-fomantic-ui-docs/**/*.ts",
+              "projects/ngx-fomantic-ui-docs/**/*.html"
             ]
           }
         }

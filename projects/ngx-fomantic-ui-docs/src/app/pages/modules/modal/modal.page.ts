@@ -24,7 +24,6 @@ const exampleTemplateModalTemplate = `
 `;
 
 // Don't use template concatenation here as the Angular compiler complains.
-// tslint:disable-next-line:prefer-template
 export const exampleTemplateTemplate = exampleTemplateModalTemplate + `
 <div class="ui fluid action input">
     <input type="text" placeholder="Modal content..." [(ngModel)]="dynamicContent">

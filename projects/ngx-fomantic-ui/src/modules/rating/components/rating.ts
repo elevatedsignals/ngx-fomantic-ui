@@ -3,7 +3,6 @@ import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHos
 
 @Component({
   selector: 'fui-rating',
-  // tslint:disable-next-line
   template: `<i *ngFor="let icon of icons; let i = index" class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>`,
   styles: [`
 :host.read-only .icon {
@@ -36,7 +35,6 @@ export class FuiRating implements ICustomValueAccessorHost<number> {
   }
 
   public get icons(): undefined[] {
-    // tslint:disable-next-line:prefer-literal
     return new Array(this.maximum);
   }
 
