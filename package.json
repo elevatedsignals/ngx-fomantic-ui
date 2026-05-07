@@ -7,7 +7,6 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "lib:compile:locales": "tsc --project ./projects/ngx-fomantic-ui/src/behaviors/localization/tsconfig.locales.json && node ./projects/ngx-fomantic-ui/scripts/locales",
     "build:lib:prod": "ng build ngx-fomantic-ui --configuration production && npm run lib:compile:locales",
     "build:docs:prod": "ng build ngx-fomantic-ui-docs --configuration production",
@@ -47,7 +46,6 @@
     "@types/estree": "^0.0.47",
     "@types/highlight.js": "^10.1.0",
     "@types/jasmine": "~3.5.12",
-    "@types/jasminewd2": "~2.0.8",
     "@types/node": "^18.19.130",
     "@typescript-eslint/eslint-plugin": "~8.27.0",
     "@typescript-eslint/parser": "~8.27.0",
@@ -61,8 +59,6 @@
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.4",
     "ng-packagr": "^19.2.2",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.10.2",
     "typescript": "~5.8.3"
   },
   "workspaces": [
