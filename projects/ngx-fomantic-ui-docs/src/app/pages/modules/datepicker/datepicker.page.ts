@@ -80,7 +80,8 @@ const exampleMobileFallbackTemplate = `
 
 @Component({
     selector: 'demo-page-datepicker',
-    templateUrl: './datepicker.page.html'
+    templateUrl: './datepicker.page.html',
+    standalone: false
 })
 export class DatepickerPage {
     public api: ApiDefinition = [
@@ -179,7 +180,8 @@ export class DatepickerPage {
 
 @Component({
     selector: 'example-datepicker-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class DatepickerExampleStandard {
     public firstDayOfWeek = 1;
@@ -191,13 +193,15 @@ export class DatepickerExampleStandard {
 
 @Component({
     selector: 'example-datepicker-button',
-    template: exampleButtonTemplate
+    template: exampleButtonTemplate,
+    standalone: false
 })
 export class DatepickerExampleButton {}
 
 @Component({
     selector: 'example-datepicker-min-max',
-    template: exampleMinMaxTemplate
+    template: exampleMinMaxTemplate,
+    standalone: false
 })
 export class DatepickerExampleMinMax {
     public min: Date;
@@ -213,7 +217,8 @@ export class DatepickerExampleMinMax {
 
 @Component({
     selector: 'example-datepicker-mobile-fallback',
-    template: exampleMobileFallbackTemplate
+    template: exampleMobileFallbackTemplate,
+    standalone: false
 })
 export class DatepickerExampleMobileFallback {
     public date: Date = new Date();

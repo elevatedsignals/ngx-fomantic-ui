@@ -77,7 +77,8 @@ const exampleIconTemplate = `
 
 @Component({
     selector: 'demo-page-toast',
-    templateUrl: './toast.page.html'
+    templateUrl: './toast.page.html',
+    standalone: false
 })
 export class ToastPage {
     public api: ApiDefinition = [
@@ -159,49 +160,57 @@ export class ToastPage {
 
 @Component({
     selector: 'example-toast-minimal',
-    template: exampleMinimalTemplate
+    template: exampleMinimalTemplate,
+    standalone: false
 })
 export class ToastExampleMinimal {}
 
 @Component({
     selector: 'example-toast-titled',
-    template: exampleTitledTemplate
+    template: exampleTitledTemplate,
+    standalone: false
 })
 export class ToastExampleTitled {}
 
 @Component({
     selector: 'example-toast-progressbar',
-    template: exampleProgressbarTemplate
+    template: exampleProgressbarTemplate,
+    standalone: false
 })
 export class ToastExampleProgressbar {}
 
 @Component({
     selector: 'example-toast-type',
-    template: exampleTypeTemplate
+    template: exampleTypeTemplate,
+    standalone: false
 })
 export class ToastExampleType {}
 
 @Component({
     selector: 'example-toast-duration',
-    template: exampleDurationTemplate
+    template: exampleDurationTemplate,
+    standalone: false
 })
 export class ToastExampleDuration {}
 
 @Component({
     selector: 'example-toast-messagestyle',
-    template: exampleMessageStyleTemplate
+    template: exampleMessageStyleTemplate,
+    standalone: false
 })
 export class ToastExampleMessageStyle {}
 
 @Component({
     selector: 'example-toast-decreasing',
-    template: exampleDecreasingTemplate
+    template: exampleDecreasingTemplate,
+    standalone: false
 })
 export class ToastExampleDecreasing {}
 
 @Component({
     selector: 'example-toast-icon',
-    template: exampleIconTemplate
+    template: exampleIconTemplate,
+    standalone: false
 })
 export class ToastExampleIcon {}
 

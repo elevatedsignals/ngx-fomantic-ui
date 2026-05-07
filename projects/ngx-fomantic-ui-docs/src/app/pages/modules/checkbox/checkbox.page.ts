@@ -38,7 +38,7 @@ const exampleRadioButtonTemplate = `
         </div>
         <div class="field">
             <fui-radio-button name="example" [value]="{ example: 'object' }" [(ngModel)]="eRadio">
-                Value: {{ '{' }} example: "object" }
+                Value: {{ '{' }} example: "object" {{ '}' }}
             </fui-radio-button>
         </div>
     </div>
@@ -77,7 +77,8 @@ const exampleStyledTemplate = `
 
 @Component({
     selector: 'demo-page-checkbox',
-    templateUrl: './checkbox.page.html'
+    templateUrl: './checkbox.page.html',
+    standalone: false
 })
 export class CheckboxPage {
     public api: ApiDefinition = [
@@ -174,7 +175,8 @@ export class CheckboxPage {
 
 @Component({
     selector: 'example-checkbox-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class CheckboxExampleStandard {
     public eCheck = true;
@@ -184,7 +186,8 @@ export class CheckboxExampleStandard {
 
 @Component({
     selector: 'example-checkbox-radio-button',
-    template: exampleRadioButtonTemplate
+    template: exampleRadioButtonTemplate,
+    standalone: false
 })
 export class CheckboxExampleRadioButton {
     public eRadio: any = 'world';
@@ -192,7 +195,8 @@ export class CheckboxExampleRadioButton {
 
 @Component({
     selector: 'example-checkbox-styled',
-    template: exampleStyledTemplate
+    template: exampleStyledTemplate,
+    standalone: false
 })
 export class CheckboxExampleStyled {
     public eStyledRadio: any;

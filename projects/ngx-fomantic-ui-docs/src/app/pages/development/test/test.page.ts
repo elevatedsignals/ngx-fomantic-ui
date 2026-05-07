@@ -3,7 +3,8 @@ import {FuiToastContainer} from 'ngx-fomantic-ui';
 
 @Component({
     selector: 'demo-page-test',
-    templateUrl: './test.page.html'
+    templateUrl: './test.page.html',
+    standalone: false
 })
 export class TestPage {
   toastCounter = 0;

@@ -100,7 +100,8 @@ const supportedLanguages: ISupportedLanguage[] = [
 
 @Component({
     selector: 'demo-page-localization',
-    templateUrl: './localization.page.html'
+    templateUrl: './localization.page.html',
+    standalone: false
 })
 export class LocalizationPage {
     public localizationCode = `
@@ -196,7 +197,8 @@ interface ILocaleValues {
 
 @Component({
     selector: 'example-localization',
-    template: exampleTemplate
+    template: exampleTemplate,
+    standalone: false
 })
 export class LocalizationExample implements OnDestroy {
     public languages: ISupportedLanguage[];

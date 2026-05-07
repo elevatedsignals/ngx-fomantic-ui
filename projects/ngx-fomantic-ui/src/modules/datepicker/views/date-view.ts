@@ -25,8 +25,8 @@ export class CalendarRangeDateService extends CalendarRangeService {
 }
 
 @Component({
-  selector: "fui-calendar-date-view",
-  template: `
+    selector: "fui-calendar-date-view",
+    template: `
     <table class="ui celled center aligned unstackable table seven column day">
       <thead>
         <tr>
@@ -37,23 +37,29 @@ export class CalendarRangeDateService extends CalendarRangeService {
           </th>
         </tr>
         <tr>
-          <th *ngFor="let day of days">{{ day }}</th>
+          @for (day of days; track day) {
+            <th>{{ day }}</th>
+          }
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let group of ranges.current.groupedItems">
-          <td
-            class="link"
-            *ngFor="let item of group"
-            [calendarItem]="item"
-            (click)="setDate(item)"
-          >
-            {{ item.humanReadable }}
-          </td>
-        </tr>
+        @for (group of ranges.current.groupedItems; track group) {
+          <tr>
+            @for (item of group; track item) {
+              <td
+                class="link"
+                [calendarItem]="item"
+                (click)="setDate(item)"
+                >
+                {{ item.humanReadable }}
+              </td>
+            }
+          </tr>
+        }
       </tbody>
     </table>
-  `,
+    `,
+    standalone: false
 })
 export class FuiCalendarDateView extends CalendarView {
   constructor(renderer: Renderer2) {

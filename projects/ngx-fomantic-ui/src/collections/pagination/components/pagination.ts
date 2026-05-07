@@ -1,41 +1,60 @@
 import {Component, EventEmitter, HostBinding, Input, OnChanges, Output} from '@angular/core';
 
 @Component({
-  selector: 'fui-pagination',
-  template: `
-<a *ngIf="hasBoundaryLinks" class="item"  (click)="setPage(1)" [class.disabled]="page===1">
+    selector: 'fui-pagination',
+    template: `
+@if (hasBoundaryLinks) {
+  <a class="item"  (click)="setPage(1)" [class.disabled]="page===1">
     <span><i class="angle double left icon"></i></span>
-</a>
-<a *ngIf="hasNavigationLinks" class="item" (click)="setPage(page-1)" [class.disabled]="!hasPrevious()">
+  </a>
+}
+@if (hasNavigationLinks) {
+  <a class="item" (click)="setPage(page-1)" [class.disabled]="!hasPrevious()">
     <span><i class="angle left icon"></i></span>
-</a>
-<ng-container *ngIf="hasEllipses">
-    <a class="item" (click)="setPage(1)" *ngIf="pages[0] !== 1">
-        <span>1</span>
+  </a>
+}
+@if (hasEllipses) {
+  @if (pages[0] !== 1) {
+    <a class="item" (click)="setPage(1)">
+      <span>1</span>
     </a>
-    <a class="disabled item" *ngIf="pages[0] > 2">...</a>
-</ng-container>
-<a *ngFor="let p of pages" class="item" [class.active]="p===page" (click)="setPage(p)">
+  }
+  @if (pages[0] > 2) {
+    <a class="disabled item">...</a>
+  }
+}
+@for (p of pages; track p) {
+  <a class="item" [class.active]="p===page" (click)="setPage(p)">
     {{ p }}
-</a>
-<ng-container *ngIf="hasEllipses">
-    <a class="disabled item" *ngIf="pages[pages.length - 1] < pageCount - 1">...</a>
-    <a class="item" (click)="setPage(pageCount)" *ngIf="pages[pages.length - 1] !== pageCount">
-        <span>{{ pageCount }}</span>
+  </a>
+}
+@if (hasEllipses) {
+  @if (pages[pages.length - 1] < pageCount - 1) {
+    <a class="disabled item">...</a>
+  }
+  @if (pages[pages.length - 1] !== pageCount) {
+    <a class="item" (click)="setPage(pageCount)">
+      <span>{{ pageCount }}</span>
     </a>
-</ng-container>
-<a *ngIf="hasNavigationLinks" class="item" (click)="setPage(page+1)" [class.disabled]="!hasNext()">
+  }
+}
+@if (hasNavigationLinks) {
+  <a class="item" (click)="setPage(page+1)" [class.disabled]="!hasNext()">
     <span><i class="angle right icon"></i></span>
-</a>
-<a *ngIf="hasBoundaryLinks" class="item"  (click)="setPage(pageCount)" [class.disabled]="page===pageCount">
+  </a>
+}
+@if (hasBoundaryLinks) {
+  <a class="item"  (click)="setPage(pageCount)" [class.disabled]="page===pageCount">
     <span><i class="angle double right icon"></i></span>
-</a>
+  </a>
+}
 `,
-  styles: [`
+    styles: [`
 :host .item {
     transition: none;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiPagination implements OnChanges {
 

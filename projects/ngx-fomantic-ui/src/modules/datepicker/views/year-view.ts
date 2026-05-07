@@ -12,29 +12,33 @@ export class CalendarRangeYearService extends CalendarRangeService {
 }
 
 @Component({
-  selector: 'fui-calendar-year-view',
-  template: `
+    selector: 'fui-calendar-year-view',
+    template: `
 <table class="ui celled center aligned unstackable table three column year">
-<thead>
+  <thead>
     <tr>
-        <th colspan="3">
-            <fui-calendar-view-title [ranges]="ranges" (zoomOut)="zoomOut()">
-                {{ pad(decadeStart) }} - {{ pad(decadeStart + 10) }}
-            </fui-calendar-view-title>
-        </th>
+      <th colspan="3">
+        <fui-calendar-view-title [ranges]="ranges" (zoomOut)="zoomOut()">
+          {{ pad(decadeStart) }} - {{ pad(decadeStart + 10) }}
+        </fui-calendar-view-title>
+      </th>
     </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let group of ranges.current.groupedItems">
-        <td class="link"
-            *ngFor="let item of group"
+  </thead>
+  <tbody>
+    @for (group of ranges.current.groupedItems; track group) {
+      <tr>
+        @for (item of group; track item) {
+          <td class="link"
             [calendarItem]="item"
             (click)="setDate(item)">{{ item.humanReadable }}
-        </td>
-    </tr>
-</tbody>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
 </table>
-`
+`,
+    standalone: false
 })
 export class FuiCalendarYearView extends CalendarView {
   constructor(renderer: Renderer2) {

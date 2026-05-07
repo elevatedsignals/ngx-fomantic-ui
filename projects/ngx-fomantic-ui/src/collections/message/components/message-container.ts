@@ -6,11 +6,11 @@ import {FuiComponentFactory} from '../../../misc/util/internal';
 import {MessageController} from '../classes/message-controller';
 
 @Component({
-  selector: 'fui-message-container',
-  template: `
+    selector: 'fui-message-container',
+    template: `
 <div #containerSibling></div>
 `,
-  styles: [`
+    styles: [`
 :host {
     display: block;
 }
@@ -24,7 +24,8 @@ import {MessageController} from '../classes/message-controller';
 :host >>> fui-message {
     cursor: pointer;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiMessageContainer {
   @ViewChild('containerSibling', { read: ViewContainerRef })

@@ -37,7 +37,8 @@ const exampleIconTemplate = `
 
 @Component({
     selector: 'demo-page-message',
-    templateUrl: './message.page.html'
+    templateUrl: './message.page.html',
+    standalone: false
 })
 export class MessagePage {
     public controller: MessageController;
@@ -143,19 +144,22 @@ export class MyComponent {
 
 @Component({
     selector: 'example-message-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class MessageExampleStandard {}
 
 @Component({
     selector: 'example-message-no-dismiss',
-    template: exampleNoDismissTemplate
+    template: exampleNoDismissTemplate,
+    standalone: false
 })
 export class MessageExampleNoDismiss {}
 
 @Component({
     selector: 'example-message-icon',
-    template: exampleIconTemplate
+    template: exampleIconTemplate,
+    standalone: false
 })
 export class MessageExampleIcon {}
 

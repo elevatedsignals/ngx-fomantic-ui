@@ -5,39 +5,49 @@ import {FuiSelectBase} from '../classes/select-base';
 import {FuiSelectOption} from './select-option';
 
 @Component({
-  selector: 'fui-select',
-  template: `
+    selector: 'fui-select',
+    template: `
                    <!-- Query input -->
                    <input fuiSelectSearch
-                          type="text"
-                          [hidden]="!isSearchable || isSearchExternal">
-
+                     type="text"
+                     [hidden]="!isSearchable || isSearchExternal">
+                   
                    <!-- Placeholder text -->
-                   <div *ngIf="selectedOption == undefined" class="default text" [class.filtered]="query">{{ placeholder }}</div>
+                   @if (selectedOption == undefined) {
+                     <div class="default text" [class.filtered]="query">{{ placeholder }}</div>
+                   }
                    <!-- Selected item -->
                    <div class="text" [class.filtered]="query || selectedOption == undefined">
-                       <span #optionTemplateSibling></span>
-                       <span *ngIf="!optionTemplate && selectedOption != undefined"
-                             [innerHTML]="configuredFormatter(selectedOption)"></span>
+                     <span #optionTemplateSibling></span>
+                     @if (!optionTemplate && selectedOption != undefined) {
+                       <span
+                       [innerHTML]="configuredFormatter(selectedOption)"></span>
+                     }
                    </div>
                    <!-- Dropdown icon -->
-                   <i *ngIf="selectedOption && !isSearching && isClearable" class="times icon"
-                      (click)="onRemoveClick($event)"></i>
-                   <i *ngIf="!selectedOption || !isClearable" class="{{ icon }} icon" (click)="onCaretClick($event)"></i>
+                   @if (selectedOption && !isSearching && isClearable) {
+                     <i class="times icon"
+                     (click)="onRemoveClick($event)"></i>
+                   }
+                   @if (!selectedOption || !isClearable) {
+                     <i class="{{ icon }} icon" (click)="onCaretClick($event)"></i>
+                   }
                    <!-- Select dropdown menu -->
                    <div class="menu"
-                        fuiDropdownMenu
-                        [menuTransition]="transition"
-                        [menuTransitionDuration]="transitionDuration"
-                        [menuAutoSelectFirst]="isSearchable">
-
-                       <ng-content></ng-content>
-                       <div *ngIf="isSearchable && availableOptions.length === 0" class="message">
-                           {{ localeValues.noResultsMessage }}
+                     fuiDropdownMenu
+                     [menuTransition]="transition"
+                     [menuTransitionDuration]="transitionDuration"
+                     [menuAutoSelectFirst]="isSearchable">
+                   
+                     <ng-content></ng-content>
+                     @if (isSearchable && availableOptions.length === 0) {
+                       <div class="message">
+                         {{ localeValues.noResultsMessage }}
                        </div>
+                     }
                    </div>
-               `,
-  styles: [`
+                   `,
+    styles: [`
                    :host .times.icon {
                        position: absolute;
                        width: auto;
@@ -62,7 +72,8 @@ import {FuiSelectOption} from './select-option';
                    :host .times.icon:hover {
                        opacity: 1;
                    }
-               `]
+               `],
+    standalone: false
 })
 export class FuiSelect<T, U> extends FuiSelectBase<T, U> implements ICustomValueAccessorHost<U> {
 
@@ -185,12 +196,13 @@ export class FuiSelect<T, U> extends FuiSelectBase<T, U> implements ICustomValue
 
 // Value accessor directive for the select to support ngModel.
 @Directive({
-  selector: 'fui-select',
-  host: {
-    '(selectedOptionChange)': 'onChange($event)',
-    '(touched)': 'onTouched()'
-  },
-  providers: [customValueAccessorFactory(FuiSelectValueAccessor)]
+    selector: 'fui-select',
+    host: {
+        '(selectedOptionChange)': 'onChange($event)',
+        '(touched)': 'onTouched()'
+    },
+    providers: [customValueAccessorFactory(FuiSelectValueAccessor)],
+    standalone: false
 })
 export class FuiSelectValueAccessor<T, U> extends CustomValueAccessor<U, FuiSelect<T, U>> {
   constructor(host: FuiSelect<T, U>) {

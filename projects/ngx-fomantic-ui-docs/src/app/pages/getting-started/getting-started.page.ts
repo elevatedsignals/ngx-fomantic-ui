@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
-`]
+`],
+    standalone: false
 })
 export class GettingStartedPage {
     public installCode = `$ npm install ngx-fomantic-ui --save`;

@@ -67,12 +67,12 @@ export class DropdownService {
 
   public setDisabledState(isDisabled: boolean): void {
     if (this.isDisabled !== isDisabled) {
-      if (!!isDisabled) {
+      if (isDisabled) {
         // Close the dropdown as it is now disabled
         this.setOpenState(false);
       }
 
-      this.isDisabled = !!isDisabled;
+      this.isDisabled = isDisabled;
     }
   }
 

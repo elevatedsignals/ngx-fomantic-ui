@@ -2,18 +2,19 @@ import {ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, Hos
 import {FuiTransition, Transition, TransitionController, TransitionDirection} from '../../transition/internal';
 
 @Component({
-  selector: 'fui-dimmer',
-  template: `
+    selector: 'fui-dimmer',
+    template: `
 <div [class.content]="wrapContent">
     <ng-content></ng-content>
 </div>
 `,
-  styles: [`
+    styles: [`
 :host.dimmer:not(.hidden) {
     transition: none;
     display: flex !important;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiDimmer extends FuiTransition {
 

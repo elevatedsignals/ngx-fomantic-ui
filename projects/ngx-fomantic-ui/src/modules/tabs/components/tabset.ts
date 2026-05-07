@@ -4,8 +4,9 @@ import {FuiTabContent} from '../directives/tab-content';
 import {Tab} from '../classes/tab';
 
 @Component({
-  selector: 'fui-tabset',
-  template: `<ng-content></ng-content>`
+    selector: 'fui-tabset',
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class FuiTabset implements AfterContentInit {
 

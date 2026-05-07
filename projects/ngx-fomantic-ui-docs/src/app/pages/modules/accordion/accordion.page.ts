@@ -75,7 +75,8 @@ const exampleManualTemplate = `
 
 @Component({
     selector: 'demo-page-accordion',
-    templateUrl: './accordion.page.html'
+    templateUrl: './accordion.page.html',
+    standalone: false
 })
 export class AccordionPage {
     public api: ApiDefinition = [
@@ -134,19 +135,22 @@ export class AccordionPage {
 
 @Component({
     selector: 'example-accordion-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class AccordionExampleStandard {}
 
 @Component({
     selector: 'example-accordion-styled',
-    template: exampleStyledTemplate
+    template: exampleStyledTemplate,
+    standalone: false
 })
 export class AccordionExampleStyled {}
 
 @Component({
     selector: 'example-accordion-manual',
-    template: exampleManualTemplate
+    template: exampleManualTemplate,
+    standalone: false
 })
 export class AccordionExampleManual {
     public panelOpen = false;

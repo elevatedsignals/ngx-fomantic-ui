@@ -4,13 +4,14 @@ import {FuiSidebar} from './sidebar';
 import {FuiSidebarSibling} from './sidebar-sibling';
 
 @Component({
-  selector: 'fui-sidebar-container',
-  template: `<ng-content></ng-content>`,
-  styles: [`
+    selector: 'fui-sidebar-container',
+    template: `<ng-content></ng-content>`,
+    styles: [`
 :host {
     display: block;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiSidebarContainer implements AfterContentInit {
   public service: SidebarService;

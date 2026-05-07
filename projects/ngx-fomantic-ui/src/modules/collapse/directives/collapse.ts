@@ -1,7 +1,8 @@
 import {Directive, ElementRef, HostBinding, Input, Renderer2} from '@angular/core';
 
 @Directive({
-  selector: '[fuiCollapse]'
+    selector: '[fuiCollapse]',
+    standalone: false
 })
 export class FuiCollapse {
 

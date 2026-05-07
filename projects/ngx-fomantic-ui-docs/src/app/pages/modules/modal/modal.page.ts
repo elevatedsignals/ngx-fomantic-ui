@@ -24,7 +24,6 @@ const exampleTemplateModalTemplate = `
 `;
 
 // Don't use template concatenation here as the Angular compiler complains.
-// tslint:disable-next-line:prefer-template
 export const exampleTemplateTemplate = exampleTemplateModalTemplate + `
 <div class="ui fluid action input">
     <input type="text" placeholder="Modal content..." [(ngModel)]="dynamicContent">
@@ -57,7 +56,8 @@ const exampleComponentTemplate = `
 
 @Component({
     selector: 'demo-page-modal',
-    templateUrl: './modal.page.html'
+    templateUrl: './modal.page.html',
+    standalone: false
 })
 export class ModalPage {
     public api: ApiDefinition = [
@@ -233,7 +233,8 @@ this.modalService
 
 @Component({
     selector: 'example-modal-template',
-    template: exampleTemplateTemplate
+    template: exampleTemplateTemplate,
+    standalone: false
 })
 export class ModalExampleTemplate {
     @ViewChild('modalTemplate')
@@ -267,7 +268,8 @@ interface IConfirmModalContext {
 
 @Component({
     selector: 'example-modal-confirm',
-    template: exampleComponentModalTemplate
+    template: exampleComponentModalTemplate,
+    standalone: false
 })
 export class ConfirmModalComponent {
     constructor(public modal: FuiBaseModal<IConfirmModalContext, void, void>) {}
@@ -285,7 +287,8 @@ export class ConfirmModal extends ComponentModalConfig<IConfirmModalContext, voi
 
 @Component({
     selector: 'example-modal-component',
-    template: exampleComponentTemplate
+    template: exampleComponentTemplate,
+    standalone: false
 })
 export class ModalExampleComponent {
 

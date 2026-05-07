@@ -33,7 +33,7 @@ Angular and jQuery don't go together - this is the fundamental principal of this
 
 Note that only Fomantic UI elements that use jQuery are recreated here - those written purely in CSS aren't included as they can be used in Angular apps already.
 
-**This is a fork of [edcarroll](https://github.com/edcarroll)'s [ng2-semantic-ui](https://github.com/edcarroll/ng2-semantic-ui), updated to Angular 7 and Fomantic UI.**
+**This is a fork of [edcarroll](https://github.com/edcarroll)'s [ng2-semantic-ui](https://github.com/edcarroll/ng2-semantic-ui), kept current with Angular and Fomantic UI.**
 
 ## Installation & Usage
 
@@ -41,7 +41,7 @@ See the [Documentation](https://ngx-fomantic-ui.github.io/ngx-fomantic-ui) for i
 
 ## Dependencies
 
-* [Angular](https://angular.io) (^16.0.0)
+* [Angular](https://angular.io) (^19.0.0)
 * [Fomantic UI CSS](http://fomantic-ui.com/) (^2.7.4) (jQuery is **not** required)
 
 ## Component Support
@@ -77,36 +77,23 @@ See the [Documentation](https://ngx-fomantic-ui.github.io/ngx-fomantic-ui) for i
 
 ## Development
 
-To generate all library files:
+To build the library (including the locale post-process step):
 
 ```bash
-$ npm run lib:compile
-# use lib:compile:w to watch for changes
+$ npm run build:lib:prod
 ```
 
-To run the demo app:
+To run the documentation app:
 ```bash
-$ npm run demo:serve
+$ npm run serve:docs
 ```
 
 ## Testing
 
 To run the unit tests suite:
 ```bash
-$ npm run test
+$ npm test -- --watch=false --browsers=ChromeHeadless
 ```
-
-## Running Documentation Website on Docker
-
-The ngx-fomantic-ui [website](https://ngx-fomantic-ui.netlify.com/#/getting-started) sample project can run as a docker container.
-In order to run the website on docker, use the following commands (**run commands from the repo's root folder**):
-* `docker build -t ngx-fomantic-ui-docs:latest .` - building the ngx-fomantic-ui website image
-* `docker run -p <host-port>:4200 ngx-fomantic-ui-docs:latest` - starting the container, listening on *<host-port>* for your choice.
-
-The container will run the documentation app with the script `docker:serve:docs` with 0.0.0.0 host support.
-* Saving the image for later offline usage is available by building the container and then using `docker save ngx-fomantic-ui-docs:latest > <tar-name>.tar`
-and loading it afterwards with `sudo docker load < <tar-name>.tar`.
-> tested on ubuntu 18.04.2 with Docker 18.09.6
 
 ## Credits and License
 

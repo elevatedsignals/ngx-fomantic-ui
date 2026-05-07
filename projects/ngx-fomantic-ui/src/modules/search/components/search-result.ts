@@ -3,11 +3,14 @@ import {FuiComponentFactory} from '../../../misc/util/internal';
 import {IResultContext} from './result-context';
 
 @Component({
-  selector: 'fui-search-result',
-  template: `
+    selector: 'fui-search-result',
+    template: `
 <span #templateSibling></span>
-<span *ngIf="!template" [innerHTML]="formatter(value, query)"></span>
-`
+@if (!template) {
+  <span [innerHTML]="formatter(value, query)"></span>
+}
+`,
+    standalone: false
 })
 export class FuiSearchResult<T> {
 

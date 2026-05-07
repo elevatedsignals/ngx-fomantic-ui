@@ -1,24 +1,22 @@
-# NgxFomanticUi
+# @elevatedsignals/ngx-fomantic-ui
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
-
-## Code scaffolding
-
-Run `ng generate component component-name --project ngx-fomantic-ui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-fomantic-ui`.
-> Note: Don't forget to add `--project ngx-fomantic-ui` or else it will be added to the default project in your `angular.json` file. 
+The Angular library project. See the [repository root README](../../README.md) for an overview.
 
 ## Build
 
-Run `ng build ngx-fomantic-ui` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build:lib:prod` from the repo root. This invokes `ng build ngx-fomantic-ui` plus the locale post-process step, which rewrites the emitted locale `.d.ts` import paths so consumers can `import` from `ngx-fomantic-ui/locales/...`. **Skipping the post-process produces a package that compiles but breaks consumers' locale imports** — always use the npm script, not bare `ng build`.
 
-## Publishing
+Build output lands in `/dist/ngx-fomantic-ui/`.
 
-After building your library with `ng build ngx-fomantic-ui`, go to the dist folder `cd dist/ngx-fomantic-ui` and run `npm publish`.
+## Code scaffolding
+
+Run `ng generate component component-name --project ngx-fomantic-ui` to add a new component. Equivalent for `directive|pipe|service|class|guard|interface|enum|module`.
+> Note: pass `--project ngx-fomantic-ui` or the workspace's default project (the docs app) will be picked instead.
 
 ## Running unit tests
 
-Run `ng test ngx-fomantic-ui` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`ng test ngx-fomantic-ui` runs the suite via Karma.
 
-## Further help
+## Publishing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This package publishes to GitHub Packages as `@elevatedsignals/ngx-fomantic-ui`. After `npm run build:lib:prod`, `cd dist/ngx-fomantic-ui && npm publish` (with the appropriate authentication for `npm.pkg.github.com`).

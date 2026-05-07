@@ -2,8 +2,8 @@ import {Component, Directive, ElementRef, EventEmitter, HostBinding, HostListene
 import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost} from '../../../misc/util/internal';
 
 @Component({
-  selector: 'fui-radio-button',
-  template: `
+    selector: 'fui-radio-button',
+    template: `
 <input class="hidden"
        type="checkbox"
        [attr.name]="name"
@@ -15,7 +15,8 @@ import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHos
 <label>
     <ng-content></ng-content>
 </label>
-`
+`,
+    standalone: false
 })
 export class FuiRadio<T> implements ICustomValueAccessorHost<T> {
   @HostBinding('class.ui')
@@ -104,12 +105,13 @@ export class FuiRadio<T> implements ICustomValueAccessorHost<T> {
 }
 
 @Directive({
-  selector: 'fui-radio-button',
-  host: {
-    '(currentValueChange)': 'onChange($event)',
-    '(touched)': 'onTouched()'
-  },
-  providers: [customValueAccessorFactory(FuiRadioValueAccessor)]
+    selector: 'fui-radio-button',
+    host: {
+        '(currentValueChange)': 'onChange($event)',
+        '(touched)': 'onTouched()'
+    },
+    providers: [customValueAccessorFactory(FuiRadioValueAccessor)],
+    standalone: false
 })
 export class FuiRadioValueAccessor<T> extends CustomValueAccessor<T, FuiRadio<T>> {
   constructor(host: FuiRadio<T>) {

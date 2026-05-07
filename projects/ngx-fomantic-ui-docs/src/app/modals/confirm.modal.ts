@@ -9,15 +9,18 @@ interface IConfirmModalContext {
 @Component({
     selector: 'demo-modal-confirm',
     template: `
-<div class="header" *ngIf="modal.context.title">{{ modal.context.title }}</div>
+@if (modal.context.title) {
+  <div class="header">{{ modal.context.title }}</div>
+}
 <div class="content">
-    <p>{{ modal.context.question }}</p>
+  <p>{{ modal.context.question }}</p>
 </div>
 <div class="actions">
-    <button class="ui red button" (click)="modal.deny(undefined)">Cancel</button>
-    <button class="ui green button" (click)="modal.approve(undefined)" autofocus>OK</button>
+  <button class="ui red button" (click)="modal.deny(undefined)">Cancel</button>
+  <button class="ui green button" (click)="modal.approve(undefined)" autofocus>OK</button>
 </div>
-`
+`,
+    standalone: false
 })
 export class ConfirmModalComponent {
     constructor(public modal: FuiBaseModal<IConfirmModalContext, void, void>) {}

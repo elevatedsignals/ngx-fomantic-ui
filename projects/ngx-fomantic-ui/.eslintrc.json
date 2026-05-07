@@ -1,0 +1,159 @@
+{
+  "extends": "../../.eslintrc.json",
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    // Rule overrides rationale (ESLint loads .eslintrc.json with JSONC, comments allowed):
+    //
+    // Rules kept "off" with reasoning:
+    //   @angular-eslint/component-class-suffix:
+    //     Library uses Fui* naming convention (e.g. FuiAccordion, FuiPagination),
+    //     not the *Component suffix. Renaming would break consumers.
+    //   @angular-eslint/directive-class-suffix:
+    //     Same Fui* naming convention applies to directives.
+    //   @angular-eslint/no-input-rename:
+    //     36 intentional aliases across the lib (e.g. @Input('fuiTabContent'),
+    //     @Input('pickerInitialDate')); the alias IS the documented public
+    //     attribute name. Renaming would be a breaking API change.
+    //   @angular-eslint/no-output-rename:
+    //     Same reasoning as no-input-rename; aliases are the documented binding
+    //     names.
+    //   @angular-eslint/no-output-native:
+    //     Single intentional case (@Output('click') on FuiMessage) for Fomantic's
+    //     clickable-message API; renaming would break consumers.
+    //   @angular-eslint/no-host-metadata-property:
+    //     7 paired CVA @Directive uses where host: { ... } wires (touched),
+    //     (checkChange), etc into the parent component. Migrating to
+    //     @HostListener is a non-trivial refactor and out of scope.
+    //   @angular-eslint/prefer-standalone:
+    //     Library exports a FomanticUIModule of NgModule-based components.
+    //     Migrating every component/directive/pipe to standalone is a
+    //     breaking API change and out of scope for the v19 upgrade.
+    //   @typescript-eslint/no-explicit-any, no-empty-function, ban-types,
+    //   no-inferrable-types:
+    //     Not enforced by the original tslint baseline; fire heavily on legacy
+    //     code (CVA stubs, Function-typed callbacks, any in generic helpers,
+    //     trivially-inferable types from literals).
+    //   @typescript-eslint/no-unsafe-function-type:
+    //     New in @typescript-eslint v8 (split out of the legacy ban-types rule).
+    //     Flags bare `Function` types in legacy CVA helpers
+    //     (custom-validator.ts, custom-value-accessor.ts) that take an Angular
+    //     class constructor as a positional argument. Refactoring to a more
+    //     specific signature would change the public API of those helpers;
+    //     out of scope for the v19 upgrade.
+    //   @angular-eslint/template/click-events-have-key-events,
+    //   interactive-supports-focus, mouse-events-have-key-events,
+    //   label-has-associated-control, alt-text:
+    //     Accessibility improvements to existing components are out of scope
+    //     for the lint migration.
+    {
+      "files": [
+        "*.ts"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "warn",
+          {
+            "type": "attribute",
+            "prefix": "fui",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "fui",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/component-class-suffix": "off",
+        "@angular-eslint/directive-class-suffix": "off",
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-output-rename": "off",
+        "@angular-eslint/no-output-on-prefix": "warn",
+        "@angular-eslint/no-output-native": "off",
+        "@angular-eslint/no-host-metadata-property": "off",
+        "@angular-eslint/prefer-standalone": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-unsafe-function-type": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-non-null-assertion": "warn",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-this-alias": "warn",
+        "quotes": [
+          "warn",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "@typescript-eslint/member-ordering": [
+          "warn",
+          {
+            "default": [
+              "static-field",
+              "instance-field",
+              "static-method",
+              "instance-method"
+            ]
+          }
+        ],
+        "max-len": [
+          "warn",
+          {
+            "code": 140,
+            "ignoreUrls": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true
+          }
+        ],
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "rxjs/Rx",
+                "message": "Import from 'rxjs' or specific submodules instead."
+              }
+            ]
+          }
+        ],
+        "curly": [
+          "warn",
+          "all"
+        ],
+        "no-console": [
+          "warn",
+          {
+            "allow": [
+              "warn",
+              "error",
+              "log"
+            ]
+          }
+        ],
+        "no-case-declarations": "warn",
+        "no-fallthrough": "warn",
+        "no-prototype-builtins": "warn",
+        "prefer-const": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "rules": {
+        "@angular-eslint/template/click-events-have-key-events": "off",
+        "@angular-eslint/template/interactive-supports-focus": "off",
+        "@angular-eslint/template/mouse-events-have-key-events": "off",
+        "@angular-eslint/template/label-has-associated-control": "off",
+        "@angular-eslint/template/alt-text": "off",
+        "@angular-eslint/template/eqeqeq": "warn"
+      }
+    }
+  ]
+}

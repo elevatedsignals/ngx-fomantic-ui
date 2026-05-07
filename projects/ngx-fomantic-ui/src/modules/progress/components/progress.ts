@@ -1,25 +1,28 @@
 import {Component, HostBinding, Input} from '@angular/core';
 
 @Component({
-  selector: 'fui-progress',
-  template: `
+    selector: 'fui-progress',
+    template: `
 <div class="bar"
-    [style.width.%]="percentage"
-    [style.minWidth]="canCompletelyEmpty ? 0 : null"
-    [style.transitionTimingFunction]="transition"
-    [style.transitionDuration.ms]="transitionDuration">
-    <div class="progress" *ngIf="showProgress">{{ percentage }}%</div>
+  [style.width.%]="percentage"
+  [style.minWidth]="canCompletelyEmpty ? 0 : null"
+  [style.transitionTimingFunction]="transition"
+  [style.transitionDuration.ms]="transitionDuration">
+  @if (showProgress) {
+    <div class="progress">{{ percentage }}%</div>
+  }
 </div>
 <div class="label">
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </div>
 `,
-  styles: [`
+    styles: [`
 .bar {
     transition-duration: 300ms !important;
     z-index: 1;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiProgress {
   @Input()

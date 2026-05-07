@@ -2,9 +2,9 @@ import {Component, Directive, ElementRef, EventEmitter, HostBinding, HostListene
 import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost} from '../../../misc/util/internal';
 
 @Component({
-  selector: 'fui-checkbox',
-  exportAs: 'fuiCheckbox',
-  template: `
+    selector: 'fui-checkbox',
+    exportAs: 'fuiCheckbox',
+    template: `
 <input class="hidden"
        type="checkbox"
        [attr.name]="name"
@@ -15,7 +15,8 @@ import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHos
 <label>
     <ng-content></ng-content>
 </label>
-`
+`,
+    standalone: false
 })
 export class FuiCheckbox implements ICustomValueAccessorHost<boolean> {
   @HostBinding('class.ui')
@@ -95,12 +96,13 @@ export class FuiCheckbox implements ICustomValueAccessorHost<boolean> {
 }
 
 @Directive({
-  selector: 'fui-checkbox',
-  host: {
-    '(checkChange)': 'onChange($event)',
-    '(touched)': 'onTouched()'
-  },
-  providers: [customValueAccessorFactory(FuiCheckboxValueAccessor)]
+    selector: 'fui-checkbox',
+    host: {
+        '(checkChange)': 'onChange($event)',
+        '(touched)': 'onTouched()'
+    },
+    providers: [customValueAccessorFactory(FuiCheckboxValueAccessor)],
+    standalone: false
 })
 export class FuiCheckboxValueAccessor extends CustomValueAccessor<boolean, FuiCheckbox> {
   constructor(host: FuiCheckbox) {

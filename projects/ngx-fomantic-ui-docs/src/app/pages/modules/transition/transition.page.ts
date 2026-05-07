@@ -14,7 +14,8 @@ const exampleStandardTemplate = `
 
 @Component({
     selector: 'demo-page-transition',
-    templateUrl: './transition.page.html'
+    templateUrl: './transition.page.html',
+    standalone: false
 })
 export class TransitionPage {
     public api: ApiDefinition = [
@@ -114,7 +115,8 @@ export class MyComponent extends FuiTransition {
 
 @Component({
     selector: 'example-transition-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class TransitionExampleStandard {
     public transitionController: TransitionController = new TransitionController();

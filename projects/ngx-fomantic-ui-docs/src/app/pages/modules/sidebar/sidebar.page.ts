@@ -45,7 +45,8 @@ const exampleDirectionTemplate = `
 
 @Component({
     selector: 'demo-page-sidebar',
-    templateUrl: './sidebar.page.html'
+    templateUrl: './sidebar.page.html',
+    standalone: false
 })
 export class SidebarPage {
     public api: ApiDefinition = [
@@ -108,13 +109,15 @@ export class SidebarPage {
 
 @Component({
     selector: 'example-sidebar-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class SidebarExampleStandard {}
 
 @Component({
     selector: 'example-sidebar-direction',
-    template: exampleDirectionTemplate
+    template: exampleDirectionTemplate,
+    standalone: false
 })
 export class SidebarExampleDirection {
     public isVisible = false;

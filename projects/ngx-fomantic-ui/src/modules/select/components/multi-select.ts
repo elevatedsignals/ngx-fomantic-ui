@@ -5,57 +5,67 @@ import {FuiSelectBase} from '../classes/select-base';
 import {FuiSelectOption} from './select-option';
 
 @Component({
-  selector: 'fui-multi-select',
-  template: `
+    selector: 'fui-multi-select',
+    template: `
 <!-- Dropdown icon -->
 <i class="{{ icon }} icon" (click)="onCaretClick($event)"></i>
 
-<ng-container *ngIf="hasLabels">
-<!-- Multi-select labels -->
-    <fui-multi-select-label *ngFor="let selected of selectedOptions;"
-                            [value]="selected"
-                            [query]="query"
-                            [formatter]="configuredFormatter"
-                            [template]="optionTemplate"
-                            (deselected)="deselectOption($event)"></fui-multi-select-label>
-</ng-container>
+@if (hasLabels) {
+  <!-- Multi-select labels -->
+  @for (selected of selectedOptions; track selected) {
+    <fui-multi-select-label
+      [value]="selected"
+      [query]="query"
+      [formatter]="configuredFormatter"
+      [template]="optionTemplate"
+    (deselected)="deselectOption($event)"></fui-multi-select-label>
+  }
+}
 
 <!-- Query input -->
 <input fuiSelectSearch
-       type="text"
-       [hidden]="!isSearchable || isSearchExternal">
+  type="text"
+  [hidden]="!isSearchable || isSearchExternal">
 
 <!-- Helper text -->
 <div class="text"
-     [class.default]="hasLabels"
-     [class.filtered]="!!query && !isSearchExternal">
+  [class.default]="hasLabels"
+  [class.filtered]="!!query && !isSearchExternal">
 
-    <!-- Placeholder text -->
-    <ng-container *ngIf="hasLabels; else selectedBlock">{{ placeholder }}</ng-container>
+  <!-- Placeholder text -->
+  @if (hasLabels) {
+    {{ placeholder }}
+  } @else {
+    {{ selectedMessage }}
+  }
 
-    <!-- Summary shown when labels are hidden -->
-    <ng-template #selectedBlock> {{ selectedMessage }}</ng-template>
+  <!-- Summary shown when labels are hidden -->
 </div>
 
 <!-- Select dropdown menu -->
 <div class="menu"
-     fuiDropdownMenu
-     [menuTransition]="transition"
-     [menuTransitionDuration]="transitionDuration"
-     [menuAutoSelectFirst]="true">
+  fuiDropdownMenu
+  [menuTransition]="transition"
+  [menuTransitionDuration]="transitionDuration"
+  [menuAutoSelectFirst]="true">
 
-    <ng-content></ng-content>
-    <ng-container *ngIf="availableOptions.length == 0 ">
-        <div *ngIf="!maxSelectedReached" class="message">{{ localeValues.noResultsMessage }}</div>
-        <div *ngIf="maxSelectedReached" class="message">{{ maxSelectedMessage }}</div>
-    </ng-container>
+  <ng-content></ng-content>
+  @if (availableOptions.length == 0 ) {
+    @if (!maxSelectedReached) {
+      <div class="message">{{ localeValues.noResultsMessage }}</div>
+    }
+    @if (maxSelectedReached) {
+      <div class="message">{{ maxSelectedMessage }}</div>
+    }
+  }
 </div>
 `,
-  styles: [`
+    styles: [`
 :host input.search {
     width: 12em !important;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiMultiSelect<T, U> extends FuiSelectBase<T, U> implements ICustomValueAccessorHost<U[]> {
 
@@ -249,12 +259,13 @@ export class FuiMultiSelect<T, U> extends FuiSelectBase<T, U> implements ICustom
 
 // Value accessor directive for the select to support ngModel.
 @Directive({
-  selector: 'fui-multi-select',
-  host: {
-    '(selectedOptionsChange)': 'onChange($event)',
-    '(touched)': 'onTouched()'
-  },
-  providers: [customValueAccessorFactory(FuiMultiSelectValueAccessor)]
+    selector: 'fui-multi-select',
+    host: {
+        '(selectedOptionsChange)': 'onChange($event)',
+        '(touched)': 'onTouched()'
+    },
+    providers: [customValueAccessorFactory(FuiMultiSelectValueAccessor)],
+    standalone: false
 })
 export class FuiMultiSelectValueAccessor<T, U> extends CustomValueAccessor<U[], FuiMultiSelect<T, U>> {
   constructor(host: FuiMultiSelect<T, U>) {

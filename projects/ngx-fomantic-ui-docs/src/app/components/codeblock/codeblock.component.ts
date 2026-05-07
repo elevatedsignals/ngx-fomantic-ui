@@ -2,12 +2,13 @@ import { Component, Input, OnInit, ViewEncapsulation, ViewChild, ElementRef } fr
 import { HighlightJS, HighlightResult } from 'ngx-highlightjs';
 
 @Component({
-  selector: 'demo-codeblock',
-  template: `
+    selector: 'demo-codeblock',
+    template: `
     <pre><code [innerHTML]="html"></code></pre>
   `,
-  styleUrls: ['./codeblock.component.css'],
-  encapsulation: ViewEncapsulation.None
+    styleUrls: ['./codeblock.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CodeblockComponent implements OnInit {
   @Input()

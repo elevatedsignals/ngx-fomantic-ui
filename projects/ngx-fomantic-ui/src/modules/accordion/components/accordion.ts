@@ -3,11 +3,11 @@ import {FuiAccordionPanel} from './accordion-panel';
 import {FuiAccordionService} from '../services/accordion.service';
 
 @Component({
-  selector: 'fui-accordion',
-  template: `
+    selector: 'fui-accordion',
+    template: `
 <ng-content></ng-content>
 `,
-  styles: [`
+    styles: [`
 /* Fix for general styling issues */
 :host {
     display: block;
@@ -17,7 +17,8 @@ import {FuiAccordionService} from '../services/accordion.service';
 :host.styled fui-accordion-panel:first-child .title {
     border-top: none
 }
-`]
+`],
+    standalone: false
 })
 export class FuiAccordion implements AfterContentInit {
   @HostBinding('class.ui')

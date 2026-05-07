@@ -2,8 +2,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CalendarRangeService} from '../services/calendar-range.service';
 
 @Component({
-  selector: 'fui-calendar-view-title',
-  template: `
+    selector: 'fui-calendar-view-title',
+    template: `
 <span class="title link" (click)="onZoomOut.emit()">
     <ng-content></ng-content>
 </span>
@@ -14,13 +14,14 @@ import {CalendarRangeService} from '../services/calendar-range.service';
     <i class="chevron right icon"></i>
 </span>
 `,
-  styles: [`
+    styles: [`
 .title.link {
     display: inline-block;
     margin-left: 2rem;
     margin-right: 2rem;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiCalendarViewTitle {
 

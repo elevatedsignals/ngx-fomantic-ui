@@ -2,12 +2,16 @@ import {Component, HostBinding, Input} from '@angular/core';
 import {PositioningPlacement} from '../../../misc/util/internal';
 
 @Component({
-  selector: 'fui-popup-arrow',
-  template: `
-<div class="dynamic arrow" [attr.direction]="direction" *ngIf="alignment == 'center'"></div>
-<div class="static arrow" [attr.direction]="direction" [attr.alignment]="alignment" *ngIf="alignment != 'center'"></div>
+    selector: 'fui-popup-arrow',
+    template: `
+@if (alignment === 'center') {
+  <div class="dynamic arrow" [attr.direction]="direction"></div>
+}
+@if (alignment !== 'center') {
+  <div class="static arrow" [attr.direction]="direction" [attr.alignment]="alignment"></div>
+}
 `,
-  styles: [`
+    styles: [`
 .arrow {
     position: absolute;
     width: 0.71428571em;
@@ -66,7 +70,8 @@ import {PositioningPlacement} from '../../../misc/util/internal';
     top: auto;
     bottom: 1em;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiPopupArrow {
   @Input()

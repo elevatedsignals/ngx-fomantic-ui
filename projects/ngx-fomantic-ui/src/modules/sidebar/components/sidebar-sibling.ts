@@ -2,14 +2,15 @@ import {Component, ElementRef, HostBinding, HostListener, Input, Renderer2} from
 import {SidebarService, SidebarTransition} from '../services/sidebar.service';
 
 @Component({
-  selector: 'fui-sidebar-sibling',
-  template: `
+    selector: 'fui-sidebar-sibling',
+    template: `
                    <ng-content></ng-content>`,
-  styles: [`
+    styles: [`
                    :host {
                        display: block;
                    }
-               `]
+               `],
+    standalone: false
 })
 export class FuiSidebarSibling {
 
