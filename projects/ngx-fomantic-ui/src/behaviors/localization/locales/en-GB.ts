@@ -45,8 +45,8 @@ const enGB: ILocaleValues = {
     timesOfDayUppercase: ["AM", "PM"],
     timesOfDayLowercase: ["am", "pm"],
     formats: {
-      time: "h:mm A",
-      datetime: "d MMMM yyyy h:mm A",
+      time: "h:mm a",
+      datetime: "d MMMM yyyy h:mm a",
       date: "d MMMM yyyy",
       month: "MMMM yyyy",
       year: "yyyy",

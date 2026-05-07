@@ -27,7 +27,7 @@ export class InternalDateParser extends DateParser {
   constructor(mode: DatepickerMode, locale: IDatepickerLocaleValues) {
     const internalFormats: IDatepickerFormatsLocaleValues = {
       time: "HH:mm",
-      datetime: "yyyy-MM-ddTHH:mm",
+      datetime: "yyyy-MM-dd'T'HH:mm",
       date: "yyyy-MM-dd",
       month: "yyyy-MM",
       year: "yyyy",
