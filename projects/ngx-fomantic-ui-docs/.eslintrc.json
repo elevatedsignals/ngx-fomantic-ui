@@ -19,10 +19,19 @@
     //   @angular-eslint/template/no-autofocus:
     //     The alert/confirm demo modals intentionally autofocus the OK button;
     //     the auto-fix removes that behavior.
+    //   @angular-eslint/prefer-standalone:
+    //     Docs app uses NgModule-based bootstrapping; matches the library it
+    //     showcases. Migrating to standalone is out of scope for the v19
+    //     upgrade.
     //   @typescript-eslint/no-explicit-any, no-empty-function, ban-types,
     //   no-inferrable-types:
     //     Not enforced by the original tslint baseline; not worth chasing in
     //     demo code that has accumulated drift while lint was broken.
+    //   @typescript-eslint/no-unsafe-function-type:
+    //     New in @typescript-eslint v8 (split out of the legacy ban-types rule).
+    //     Disabled here for symmetry with the library config; the docs app
+    //     currently has no violations but inheriting the same baseline avoids
+    //     surprise if a future demo page uses a bare `Function` type.
     //   @angular-eslint/template/click-events-have-key-events,
     //   interactive-supports-focus, mouse-events-have-key-events,
     //   label-has-associated-control, alt-text:
@@ -44,13 +53,15 @@
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-class-suffix": "off",
         "@angular-eslint/no-output-on-prefix": "warn",
+        "@angular-eslint/prefer-standalone": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-unsafe-function-type": "off",
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/no-non-null-assertion": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/quotes": [
+        "quotes": [
           "warn",
           "single",
           {

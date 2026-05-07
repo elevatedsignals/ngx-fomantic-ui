@@ -26,11 +26,22 @@
     //     7 paired CVA @Directive uses where host: { ... } wires (touched),
     //     (checkChange), etc into the parent component. Migrating to
     //     @HostListener is a non-trivial refactor and out of scope.
+    //   @angular-eslint/prefer-standalone:
+    //     Library exports a FomanticUIModule of NgModule-based components.
+    //     Migrating every component/directive/pipe to standalone is a
+    //     breaking API change and out of scope for the v19 upgrade.
     //   @typescript-eslint/no-explicit-any, no-empty-function, ban-types,
     //   no-inferrable-types:
     //     Not enforced by the original tslint baseline; fire heavily on legacy
     //     code (CVA stubs, Function-typed callbacks, any in generic helpers,
     //     trivially-inferable types from literals).
+    //   @typescript-eslint/no-unsafe-function-type:
+    //     New in @typescript-eslint v8 (split out of the legacy ban-types rule).
+    //     Flags bare `Function` types in legacy CVA helpers
+    //     (custom-validator.ts, custom-value-accessor.ts) that take an Angular
+    //     class constructor as a positional argument. Refactoring to a more
+    //     specific signature would change the public API of those helpers;
+    //     out of scope for the v19 upgrade.
     //   @angular-eslint/template/click-events-have-key-events,
     //   interactive-supports-focus, mouse-events-have-key-events,
     //   label-has-associated-control, alt-text:
@@ -64,14 +75,16 @@
         "@angular-eslint/no-output-on-prefix": "warn",
         "@angular-eslint/no-output-native": "off",
         "@angular-eslint/no-host-metadata-property": "off",
+        "@angular-eslint/prefer-standalone": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-unsafe-function-type": "off",
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/no-non-null-assertion": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/no-this-alias": "warn",
-        "@typescript-eslint/quotes": [
+        "quotes": [
           "warn",
           "single",
           {
