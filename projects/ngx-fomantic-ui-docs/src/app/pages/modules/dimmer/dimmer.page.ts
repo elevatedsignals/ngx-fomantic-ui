@@ -33,7 +33,8 @@ const exampleVariationsTemplate = `
 
 @Component({
     selector: 'demo-page-dimmer',
-    templateUrl: './dimmer.page.html'
+    templateUrl: './dimmer.page.html',
+    standalone: false
 })
 export class DimmerPage {
     public api: ApiDefinition = [
@@ -81,7 +82,8 @@ export class DimmerPage {
 
 @Component({
     selector: 'example-dimmer-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class DimmerExampleStandard {
     public isClickable = true;
@@ -90,7 +92,8 @@ export class DimmerExampleStandard {
 
 @Component({
     selector: 'example-dimmer-variations',
-    template: exampleVariationsTemplate
+    template: exampleVariationsTemplate,
+    standalone: false
 })
 export class DimmerExampleVariations {
     public isClickable = true;

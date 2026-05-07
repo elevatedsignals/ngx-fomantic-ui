@@ -1,7 +1,8 @@
 import {Directive, HostBinding, Input} from '@angular/core';
 
 @Directive({
-  selector: '[fuiTabContent]'
+    selector: '[fuiTabContent]',
+    standalone: false
 })
 export class FuiTabContent {
   @HostBinding('class.tab')

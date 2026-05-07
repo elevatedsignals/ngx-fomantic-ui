@@ -15,13 +15,13 @@ export const MessagePosition = {
 };
 
 @Component({
-  selector: 'fui-message-global-container',
-  template: `
+    selector: 'fui-message-global-container',
+    template: `
 <div class="global container" [ngClass]="dynamicClasses" [style.width.px]="dynamicWidth">
     <fui-message-container [controller]="controller"></fui-message-container>
 </div>
 `,
-  styles: [`
+    styles: [`
 .global.container {
     display: block;
     position: fixed;
@@ -41,7 +41,8 @@ export const MessagePosition = {
 .global.container:not(.left):not(.right) {
     left: 1rem;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiMessageGlobalContainer {
   public controller: MessageController;

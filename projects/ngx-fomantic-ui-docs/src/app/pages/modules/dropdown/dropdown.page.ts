@@ -138,7 +138,8 @@ const exampleMenuTemplate = `
 
 @Component({
     selector: 'demo-page-dropdown',
-    templateUrl: './dropdown.page.html'
+    templateUrl: './dropdown.page.html',
+    standalone: false
 })
 export class DropdownPage {
     public api: ApiDefinition = [
@@ -206,13 +207,15 @@ export class DropdownPage {
 
 @Component({
     selector: 'example-dropdown-file-menu',
-    template: exampleFileMenuTemplate
+    template: exampleFileMenuTemplate,
+    standalone: false
 })
 export class DropdownExampleFileMenu {}
 
 @Component({
     selector: 'example-dropdown-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class DropdownExampleStandard {
     public isOpen: boolean;
@@ -221,13 +224,15 @@ export class DropdownExampleStandard {
 
 @Component({
     selector: 'example-dropdown-styled',
-    template: exampleStyledTemplate
+    template: exampleStyledTemplate,
+    standalone: false
 })
 export class DropdownExampleStyled {}
 
 @Component({
     selector: 'example-dropdown-menu',
-    template: exampleMenuTemplate
+    template: exampleMenuTemplate,
+    standalone: false
 })
 export class DropdownExampleMenu {}
 

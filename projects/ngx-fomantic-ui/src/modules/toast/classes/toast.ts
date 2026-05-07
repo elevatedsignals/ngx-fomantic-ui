@@ -3,9 +3,9 @@ import {FuiToastTitle} from '../directives/toast-title';
 import {FuiToastMessage} from '../directives/toast-message';
 
 @Component({
-  selector: 'fui-toast',
-  exportAs: 'fuiToast',
-  template: `
+    selector: 'fui-toast',
+    exportAs: 'fuiToast',
+    template: `
     <div class="toast-box compact" (click)="(dismissible ? (!closeIcon ? close() : null) : null)">
       @if (showProgress && showProgress === 'top') {
         <div class="ui attached active progress {{class}} {{showProgress}}">
@@ -46,7 +46,8 @@ import {FuiToastMessage} from '../directives/toast-message';
         </div>
       }
     </div>
-    `
+    `,
+    standalone: false
 })
 export class FuiToast implements OnInit {
   @Input() dismissible: boolean;

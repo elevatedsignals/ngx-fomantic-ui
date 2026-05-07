@@ -177,7 +177,8 @@ const exampleSearchLookupTemplate = `
 
 @Component({
     selector: 'demo-page-select',
-    templateUrl: './select.page.html'
+    templateUrl: './select.page.html',
+    standalone: false
 })
 export class SelectPage {
     public api: ApiDefinition = [
@@ -474,7 +475,8 @@ const idOptions: IOption[] = namedOptions.map(({ name }, id) => ({ name, id }));
 
 @Component({
     selector: 'example-select-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class SelectExampleStandard {
     public options: IOption[] = namedOptions;
@@ -488,7 +490,8 @@ export class SelectExampleStandard {
 
 @Component({
     selector: 'example-select-variations',
-    template: exampleVariationsTemplate
+    template: exampleVariationsTemplate,
+    standalone: false
 })
 export class SelectExampleVariations {
     public selectedRange = 'today';
@@ -497,7 +500,8 @@ export class SelectExampleVariations {
 
 @Component({
     selector: 'example-clearable-select',
-    template: exampleClearableTemplate
+    template: exampleClearableTemplate,
+    standalone: false
 })
 export class SelectClearableExample {
     public selectedOption: string;
@@ -506,7 +510,8 @@ export class SelectClearableExample {
 
 @Component({
     selector: 'example-select-in-menu-search',
-    template: exampleInMenuSearchTemplate
+    template: exampleInMenuSearchTemplate,
+    standalone: false
 })
 export class SelectExampleInMenuSearch {
     public options: IOption[] = namedOptions;
@@ -515,7 +520,8 @@ export class SelectExampleInMenuSearch {
 
 @Component({
     selector: 'example-select-template',
-    template: exampleTemplateTemplate
+    template: exampleTemplateTemplate,
+    standalone: false
 })
 export class SelectExampleTemplate {
     public options: IOption[] = namedOptions;
@@ -528,7 +534,8 @@ export class SelectExampleTemplate {
 
 @Component({
     selector: 'example-select-search-lookup',
-    template: exampleSearchLookupTemplate
+    template: exampleSearchLookupTemplate,
+    standalone: false
 })
 export class SelectExampleLookupSearch {
     private options: IOption[] = idOptions;

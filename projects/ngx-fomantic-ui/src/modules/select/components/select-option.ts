@@ -15,11 +15,12 @@ import {FuiDropdownMenuItem} from '../../dropdown/internal';
 import {HandledEvent} from '../../../misc/util/internal';
 
 @Component({
-  selector: 'fui-select-option',
-  template: `
+    selector: 'fui-select-option',
+    template: `
 <span #templateSibling></span>
 <span [innerHTML]="renderedText"></span>
-`
+`,
+    standalone: false
 })
 export class FuiSelectOption<T> extends FuiDropdownMenuItem {
   // Sets the Fomantic UI classes on the host element.

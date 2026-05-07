@@ -1,7 +1,8 @@
 import {Directive, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
 
 @Directive({
-  selector: '[fuiTabHeader]'
+    selector: '[fuiTabHeader]',
+    standalone: false
 })
 export class FuiTabHeader {
 

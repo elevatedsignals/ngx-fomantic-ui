@@ -21,7 +21,8 @@ const exampleStandardTemplate = `
 
 @Component({
     selector: 'demo-page-collapse',
-    templateUrl: './collapse.page.html'
+    templateUrl: './collapse.page.html',
+    standalone: false
 })
 export class CollapsePage {
     public api: ApiDefinition = [
@@ -51,7 +52,8 @@ export class CollapsePage {
 
 @Component({
     selector: 'example-collapse-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class CollapseExampleStandard {
     public collapse = false;

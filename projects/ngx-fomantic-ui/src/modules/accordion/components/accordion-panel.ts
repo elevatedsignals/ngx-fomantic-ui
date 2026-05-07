@@ -3,9 +3,9 @@ import {FuiAccordionService} from '../services/accordion.service';
 import {Transition, TransitionController} from '../../transition/internal';
 
 @Component({
-  selector: 'fui-accordion-panel',
-  exportAs: 'fuiAccordionPanel',
-  template: `
+    selector: 'fui-accordion-panel',
+    exportAs: 'fuiAccordionPanel',
+    template: `
 <!-- Title -->
 <div class="title" [class.active]="isOpen" (click)="toggle()" >
     <ng-content select="[title]"></ng-content>
@@ -17,7 +17,7 @@ import {Transition, TransitionController} from '../../transition/internal';
     </div>
 </div>
 `,
-  styles: [`
+    styles: [`
 /* Manual style as Fomantic UI relies on > selector */
 .content {
     padding: .5em 0 1em;
@@ -27,7 +27,8 @@ import {Transition, TransitionController} from '../../transition/internal';
 :host:first-child .title {
     border-top: none;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiAccordionPanel {
 

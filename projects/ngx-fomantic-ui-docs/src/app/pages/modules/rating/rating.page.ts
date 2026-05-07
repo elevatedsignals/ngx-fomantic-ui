@@ -116,7 +116,8 @@ const exampleSizedTemplate = `
 
 @Component({
     selector: 'demo-page-rating',
-    templateUrl: './rating.page.html'
+    templateUrl: './rating.page.html',
+    standalone: false
 })
 export class RatingPage {
     public api: ApiDefinition = [
@@ -170,7 +171,8 @@ export class RatingPage {
 
 @Component({
     selector: 'example-rating-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class RatingExampleStandard {
     public rating = 3;
@@ -179,19 +181,22 @@ export class RatingExampleStandard {
 
 @Component({
     selector: 'example-rating-styled',
-    template: exampleStyledTemplate
+    template: exampleStyledTemplate,
+    standalone: false
 })
 export class RatingExampleStyled {}
 
 @Component({
     selector: 'example-rating-colored',
-    template: exampleColoredTemplate
+    template: exampleColoredTemplate,
+    standalone: false
 })
 export class RatingExampleColored {}
 
 @Component({
     selector: 'example-rating-sized',
-    template: exampleSizedTemplate
+    template: exampleSizedTemplate,
+    standalone: false
 })
 export class RatingExampleSized {}
 export const RatingPageComponents = [RatingPage, RatingExampleStandard, RatingExampleStyled, RatingExampleColored, RatingExampleSized];

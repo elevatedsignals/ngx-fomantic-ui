@@ -2,8 +2,9 @@ import {ChangeDetectorRef, Directive, ElementRef, HostBinding, Input, Renderer2}
 import {TransitionController} from '../classes/transition-controller';
 
 @Directive({
-  selector: '[fuiTransition]',
-  exportAs: 'transition'
+    selector: '[fuiTransition]',
+    exportAs: 'transition',
+    standalone: false
 })
 export class FuiTransition {
   @HostBinding('class.transition')

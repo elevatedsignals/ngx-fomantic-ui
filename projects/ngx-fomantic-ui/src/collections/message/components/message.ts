@@ -8,8 +8,8 @@ export interface IMessage {
 }
 
 @Component({
-  selector: 'fui-message',
-  template: `
+    selector: 'fui-message',
+    template: `
 <div [fuiTransition]="transitionController">
   <div class="ui message"
     [ngClass]="dynamicClasses"
@@ -37,7 +37,8 @@ export interface IMessage {
     [canCompletelyEmpty]="true"></fui-progress>
   }
 </div>
-`
+`,
+    standalone: false
 })
 export class FuiMessage implements IMessage {
   public isDynamic: boolean;

@@ -5,8 +5,8 @@ import {FuiSelectBase} from '../classes/select-base';
 import {FuiSelectOption} from './select-option';
 
 @Component({
-  selector: 'fui-multi-select',
-  template: `
+    selector: 'fui-multi-select',
+    template: `
 <!-- Dropdown icon -->
 <i class="{{ icon }} icon" (click)="onCaretClick($event)"></i>
 
@@ -60,11 +60,12 @@ import {FuiSelectOption} from './select-option';
   }
 </div>
 `,
-  styles: [`
+    styles: [`
 :host input.search {
     width: 12em !important;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiMultiSelect<T, U> extends FuiSelectBase<T, U> implements ICustomValueAccessorHost<U[]> {
 
@@ -258,12 +259,13 @@ export class FuiMultiSelect<T, U> extends FuiSelectBase<T, U> implements ICustom
 
 // Value accessor directive for the select to support ngModel.
 @Directive({
-  selector: 'fui-multi-select',
-  host: {
-    '(selectedOptionsChange)': 'onChange($event)',
-    '(touched)': 'onTouched()'
-  },
-  providers: [customValueAccessorFactory(FuiMultiSelectValueAccessor)]
+    selector: 'fui-multi-select',
+    host: {
+        '(selectedOptionsChange)': 'onChange($event)',
+        '(touched)': 'onTouched()'
+    },
+    providers: [customValueAccessorFactory(FuiMultiSelectValueAccessor)],
+    standalone: false
 })
 export class FuiMultiSelectValueAccessor<T, U> extends CustomValueAccessor<U[], FuiMultiSelect<T, U>> {
   constructor(host: FuiMultiSelect<T, U>) {

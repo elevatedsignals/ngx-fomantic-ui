@@ -17,8 +17,8 @@ import {ModalControls, ModalResult} from '../classes/modal-controls';
 import {ModalConfig, ModalSize} from '../classes/modal-config';
 
 @Component({
-  selector: 'fui-modal',
-  template: `
+    selector: 'fui-modal',
+    template: `
 <!-- Page dimmer for modal background. -->
 <fui-modal-dimmer [ngClass]="{'top aligned': !isCentered}"
   [class.inverted]="isInverted"
@@ -49,7 +49,8 @@ import {ModalConfig, ModalSize} from '../classes/modal-config';
   </div>
 </fui-modal-dimmer>
 `,
-  styles: [``]
+    styles: [``],
+    standalone: false
 })
 export class FuiModal<T, U> implements OnInit, AfterViewInit {
 

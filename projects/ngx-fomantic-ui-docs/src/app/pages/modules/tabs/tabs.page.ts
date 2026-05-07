@@ -84,7 +84,8 @@ const exampleStyledTemplate = `
 
 @Component({
     selector: 'demo-page-tabs',
-    templateUrl: './tabs.page.html'
+    templateUrl: './tabs.page.html',
+    standalone: false
 })
 export class TabsPage {
     public api: ApiDefinition = [
@@ -154,13 +155,15 @@ export class TabsPage {
 
 @Component({
     selector: 'example-tab-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class TabExampleStandard {}
 
 @Component({
     selector: 'example-tab-properties',
-    template: examplePropertiesTemplate
+    template: examplePropertiesTemplate,
+    standalone: false
 })
 export class TabExampleProperties {
     public firstActive: boolean;
@@ -180,7 +183,8 @@ export class TabExampleProperties {
 
 @Component({
     selector: 'example-tab-dynamic',
-    template: exampleDynamicTemplate
+    template: exampleDynamicTemplate,
+    standalone: false
 })
 export class TabExampleDynamic {
     public active: boolean[] = [];
@@ -205,7 +209,8 @@ export class TabExampleDynamic {
 
 @Component({
     selector: 'example-tab-styled',
-    template: exampleStyledTemplate
+    template: exampleStyledTemplate,
+    standalone: false
 })
 export class TabExampleStyled {
     public pointing = true;

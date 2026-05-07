@@ -78,7 +78,8 @@ const exampleRotationTemplate = `
 
 @Component({
     selector: 'demo-page-pagination',
-    templateUrl: './pagination.page.html'
+    templateUrl: './pagination.page.html',
+    standalone: false
 })
 export class PaginationPage {
     public api: ApiDefinition = [
@@ -153,7 +154,8 @@ export class PaginationPage {
 
 @Component({
     selector: 'example-pagination-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class PaginationExampleStandard implements OnInit {
 
@@ -172,7 +174,8 @@ export class PaginationExampleStandard implements OnInit {
 
 @Component({
     selector: 'example-pagination-maxsize',
-    template: exampleMaxSizeTemplate
+    template: exampleMaxSizeTemplate,
+    standalone: false
 })
 export class PaginationExampleMaxSize implements OnInit {
 
@@ -191,7 +194,8 @@ export class PaginationExampleMaxSize implements OnInit {
 
 @Component({
     selector: 'example-pagination-rotation',
-    template: exampleRotationTemplate
+    template: exampleRotationTemplate,
+    standalone: false
 })
 export class PaginationExampleRotation implements OnInit {
 

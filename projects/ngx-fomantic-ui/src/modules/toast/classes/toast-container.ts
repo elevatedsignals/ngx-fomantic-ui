@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {FuiToastConfig} from './toast-config';
 
 @Component({
-  selector: 'fui-toast-container',
-  exportAs: 'fuiToastContainer',
-  template: `
+    selector: 'fui-toast-container',
+    exportAs: 'fuiToastContainer',
+    template: `
     @for (toast of toastData; track toast) {
       <fui-toast
         [id]="toast.id"
@@ -18,7 +18,8 @@ import {FuiToastConfig} from './toast-config';
         [progressUp]="toast.progressUp"
         [className]="toast.className"
       (close)="closeToast(toast.id)"></fui-toast>
-    }`
+    }`,
+    standalone: false
 })
 export class FuiToastContainer {
   toastData: Array<FuiToastConfig> = [];

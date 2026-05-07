@@ -18,7 +18,8 @@ interface IAlertModalContext {
 <div class="actions">
   <button class="ui green button" (click)="modal.approve(undefined)" autofocus>OK</button>
 </div>
-`
+`,
+    standalone: false
 })
 export class AlertModalComponent {
     constructor(public modal: FuiBaseModal<IAlertModalContext, void, void>) {}

@@ -2,13 +2,14 @@ import {Component, Directive, EventEmitter, HostBinding, HostListener, Input, Ou
 import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost} from '../../../misc/util/internal';
 
 @Component({
-  selector: 'fui-rating',
-  template: `@for (icon of icons; track icon; let i = $index) {<i class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>}`,
-  styles: [`
+    selector: 'fui-rating',
+    template: `@for (icon of icons; track icon; let i = $index) {<i class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>}`,
+    styles: [`
 :host.read-only .icon {
     cursor: auto
 }
-`]
+`],
+    standalone: false
 })
 export class FuiRating implements ICustomValueAccessorHost<number> {
 
@@ -82,9 +83,10 @@ export class FuiRating implements ICustomValueAccessorHost<number> {
 }
 
 @Directive({
-  selector: 'fui-rating',
-  host: {'(valueChange)': 'onChange($event)'},
-  providers: [customValueAccessorFactory(FuiRatingValueAccessor)]
+    selector: 'fui-rating',
+    host: { '(valueChange)': 'onChange($event)' },
+    providers: [customValueAccessorFactory(FuiRatingValueAccessor)],
+    standalone: false
 })
 export class FuiRatingValueAccessor extends CustomValueAccessor<number, FuiRating> {
   constructor(host: FuiRating) {

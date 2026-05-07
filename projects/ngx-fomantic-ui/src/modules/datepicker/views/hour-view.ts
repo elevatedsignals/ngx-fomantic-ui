@@ -15,8 +15,8 @@ export class CalendarRangeHourService extends CalendarRangeService {
 }
 
 @Component({
-  selector: 'fui-calendar-hour-view',
-  template: `
+    selector: 'fui-calendar-hour-view',
+    template: `
 <table class="ui celled center aligned unstackable table four column hour">
   @if (service.config.mode != 1) {
     <thead>
@@ -42,7 +42,8 @@ export class CalendarRangeHourService extends CalendarRangeService {
     }
   </tbody>
 </table>
-`
+`,
+    standalone: false
 })
 export class FuiCalendarHourView extends CalendarView {
 

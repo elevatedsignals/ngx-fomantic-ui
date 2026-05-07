@@ -4,7 +4,8 @@ import {Subscription} from 'rxjs';
 import {Util} from '../../../misc/util/internal';
 
 @Directive({
-  selector: 'form:not([ngForm]):not([[ngForm]]),ngForm,[ngForm]'
+    selector: 'form:not([ngForm]):not([[ngForm]]),ngForm,[ngForm]',
+    standalone: false
 })
 export class FuiRadioManager<T> implements AfterContentInit {
 

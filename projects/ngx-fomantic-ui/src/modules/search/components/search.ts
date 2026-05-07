@@ -19,8 +19,8 @@ import {FilterFn, LookupFn} from '../helpers/lookup-fn';
 import { IResultContext } from './result-context';
 
 @Component({
-  selector: 'fui-search',
-  template: `
+    selector: 'fui-search',
+    template: `
 <div class="ui input" [class.icon]="hasIcon" (click)="onClick($event)">
   <input class="prompt" type="text" [attr.placeholder]="placeholder" autocomplete="off" [(ngModel)]="query">
   @if (hasIcon) {
@@ -51,7 +51,7 @@ import { IResultContext } from './result-context';
   }
 </div>
 `,
-  styles: [`
+    styles: [`
 /* Ensures results div has margin. */
 :host {
     display: inline-block;
@@ -62,7 +62,8 @@ import { IResultContext } from './result-context';
 .results {
     margin-bottom: .5em;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiSearch<T> implements AfterViewInit {
 

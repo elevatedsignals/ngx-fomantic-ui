@@ -5,8 +5,8 @@ import {FuiSelectBase} from '../classes/select-base';
 import {FuiSelectOption} from './select-option';
 
 @Component({
-  selector: 'fui-select',
-  template: `
+    selector: 'fui-select',
+    template: `
                    <!-- Query input -->
                    <input fuiSelectSearch
                      type="text"
@@ -47,7 +47,7 @@ import {FuiSelectOption} from './select-option';
                      }
                    </div>
                    `,
-  styles: [`
+    styles: [`
                    :host .times.icon {
                        position: absolute;
                        width: auto;
@@ -72,7 +72,8 @@ import {FuiSelectOption} from './select-option';
                    :host .times.icon:hover {
                        opacity: 1;
                    }
-               `]
+               `],
+    standalone: false
 })
 export class FuiSelect<T, U> extends FuiSelectBase<T, U> implements ICustomValueAccessorHost<U> {
 
@@ -195,12 +196,13 @@ export class FuiSelect<T, U> extends FuiSelectBase<T, U> implements ICustomValue
 
 // Value accessor directive for the select to support ngModel.
 @Directive({
-  selector: 'fui-select',
-  host: {
-    '(selectedOptionChange)': 'onChange($event)',
-    '(touched)': 'onTouched()'
-  },
-  providers: [customValueAccessorFactory(FuiSelectValueAccessor)]
+    selector: 'fui-select',
+    host: {
+        '(selectedOptionChange)': 'onChange($event)',
+        '(touched)': 'onTouched()'
+    },
+    providers: [customValueAccessorFactory(FuiSelectValueAccessor)],
+    standalone: false
 })
 export class FuiSelectValueAccessor<T, U> extends CustomValueAccessor<U, FuiSelect<T, U>> {
   constructor(host: FuiSelect<T, U>) {

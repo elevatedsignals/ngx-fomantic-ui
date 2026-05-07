@@ -17,8 +17,9 @@ import {HandledEvent, IAugmentedElement, KeyCode} from '../../../misc/util/inter
 import {DropdownAutoCloseType, DropdownService} from '../services/dropdown.service';
 
 @Directive({
-  // We must attach to every '.item' as Angular doesn't support > selectors.
-  selector: '.item'
+    // We must attach to every '.item' as Angular doesn't support > selectors.
+    selector: '.item',
+    standalone: false
 })
 export class FuiDropdownMenuItem {
 
@@ -65,7 +66,8 @@ export class FuiDropdownMenuItem {
 }
 
 @Directive({
-  selector: '[fuiDropdownMenu]'
+    selector: '[fuiDropdownMenu]',
+    standalone: false
 })
 export class FuiDropdownMenu extends FuiTransition implements AfterContentInit, OnDestroy {
 

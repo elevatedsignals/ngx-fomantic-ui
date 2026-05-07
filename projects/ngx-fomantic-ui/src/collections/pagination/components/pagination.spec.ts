@@ -9,14 +9,15 @@ import {FuiPaginationModule} from '../pagination.module';
  * TestHostComponent
  */
 @Component({
-  template: `
+    template: `
 <fui-pagination
     [collectionSize]="collectionSize"
     [pageSize]="pageSize"
     [maxSize]="maxSize"
     [(page)]="currentPage"
     ></fui-pagination>
-`
+`,
+    standalone: false
 })
 export class TestHostComponent {
   public collectionSize: number;

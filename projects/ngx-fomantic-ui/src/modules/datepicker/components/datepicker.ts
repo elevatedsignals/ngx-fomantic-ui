@@ -4,8 +4,8 @@ import {DatetimeConfig} from '../classes/calendar-config';
 import {FuiLocalizationService} from '../../../behaviors/localization/internal';
 
 @Component({
-  selector: 'fui-datepicker',
-  template: `
+    selector: 'fui-datepicker',
+    template: `
 @switch (service.currentView) {
   @case (0) {
     <fui-calendar-year-view [service]="service"></fui-calendar-year-view>
@@ -24,11 +24,12 @@ import {FuiLocalizationService} from '../../../behaviors/localization/internal';
   }
 }
 `,
-  styles: [`
+    styles: [`
 :host {
     user-select: none;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiDatepicker {
   @HostBinding('class.ui')

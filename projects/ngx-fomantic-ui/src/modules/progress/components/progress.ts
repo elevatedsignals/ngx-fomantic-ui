@@ -1,8 +1,8 @@
 import {Component, HostBinding, Input} from '@angular/core';
 
 @Component({
-  selector: 'fui-progress',
-  template: `
+    selector: 'fui-progress',
+    template: `
 <div class="bar"
   [style.width.%]="percentage"
   [style.minWidth]="canCompletelyEmpty ? 0 : null"
@@ -16,12 +16,13 @@ import {Component, HostBinding, Input} from '@angular/core';
   <ng-content></ng-content>
 </div>
 `,
-  styles: [`
+    styles: [`
 .bar {
     transition-duration: 300ms !important;
     z-index: 1;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiProgress {
   @Input()

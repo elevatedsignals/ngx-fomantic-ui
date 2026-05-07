@@ -12,8 +12,8 @@ export class CalendarRangeYearService extends CalendarRangeService {
 }
 
 @Component({
-  selector: 'fui-calendar-year-view',
-  template: `
+    selector: 'fui-calendar-year-view',
+    template: `
 <table class="ui celled center aligned unstackable table three column year">
   <thead>
     <tr>
@@ -37,7 +37,8 @@ export class CalendarRangeYearService extends CalendarRangeService {
     }
   </tbody>
 </table>
-`
+`,
+    standalone: false
 })
 export class FuiCalendarYearView extends CalendarView {
   constructor(renderer: Renderer2) {

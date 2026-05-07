@@ -53,7 +53,8 @@ const exampleVariationsTemplate = `
 
 @Component({
     selector: 'demo-page-progress',
-    templateUrl: './progress.page.html'
+    templateUrl: './progress.page.html',
+    standalone: false
 })
 export class ProgressPage {
     public api: ApiDefinition = [
@@ -119,7 +120,8 @@ export class ProgressPage {
 
 @Component({
     selector: 'example-progress-standard',
-    template: exampleStandardTemplate
+    template: exampleStandardTemplate,
+    standalone: false
 })
 export class ProgressExampleStandard {
     public value = 55;
@@ -130,7 +132,8 @@ export class ProgressExampleStandard {
 
 @Component({
     selector: 'example-progress-variations',
-    template: exampleVariationsTemplate
+    template: exampleVariationsTemplate,
+    standalone: false
 })
 export class ProgressExampleVariations {
     public value = 55;

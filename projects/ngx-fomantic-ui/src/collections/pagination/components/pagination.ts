@@ -1,8 +1,8 @@
 import {Component, EventEmitter, HostBinding, Input, OnChanges, Output} from '@angular/core';
 
 @Component({
-  selector: 'fui-pagination',
-  template: `
+    selector: 'fui-pagination',
+    template: `
 @if (hasBoundaryLinks) {
   <a class="item"  (click)="setPage(1)" [class.disabled]="page===1">
     <span><i class="angle double left icon"></i></span>
@@ -49,11 +49,12 @@ import {Component, EventEmitter, HostBinding, Input, OnChanges, Output} from '@a
   </a>
 }
 `,
-  styles: [`
+    styles: [`
 :host .item {
     transition: none;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiPagination implements OnChanges {
 

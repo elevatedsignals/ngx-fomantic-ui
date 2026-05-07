@@ -19,7 +19,8 @@ interface IConfirmModalContext {
   <button class="ui red button" (click)="modal.deny(undefined)">Cancel</button>
   <button class="ui green button" (click)="modal.approve(undefined)" autofocus>OK</button>
 </div>
-`
+`,
+    standalone: false
 })
 export class ConfirmModalComponent {
     constructor(public modal: FuiBaseModal<IConfirmModalContext, void, void>) {}

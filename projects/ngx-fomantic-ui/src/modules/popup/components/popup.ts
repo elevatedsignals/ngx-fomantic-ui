@@ -5,8 +5,8 @@ import {IPopup} from '../classes/popup-controller';
 import {TemplatePopupConfig} from '../classes/popup-template-controller';
 
 @Component({
-  selector: 'fui-popup',
-  template: `
+    selector: 'fui-popup',
+    template: `
 <div class="ui popup"
   [ngClass]="dynamicClasses"
   [fuiTransition]="transitionController"
@@ -28,7 +28,7 @@ import {TemplatePopupConfig} from '../classes/popup-template-controller';
   }
 </div>
 `,
-  styles: [`
+    styles: [`
 .ui.popup {
     position: absolute;
     width: max-content;
@@ -48,7 +48,8 @@ import {TemplatePopupConfig} from '../classes/popup-template-controller';
     /* Hide the Fomantic UI CSS arrow. */
     display: none;
 }
-`]
+`],
+    standalone: false
 })
 export class FuiPopup implements IPopup, OnDestroy {
 

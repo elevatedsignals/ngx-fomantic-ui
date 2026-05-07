@@ -13,8 +13,8 @@ export class CalendarRangeMonthService extends CalendarRangeService {
 }
 
 @Component({
-  selector: 'fui-calendar-month-view',
-  template: `
+    selector: 'fui-calendar-month-view',
+    template: `
 <table class="ui celled center aligned unstackable table three column month">
   <thead>
     <tr>
@@ -38,7 +38,8 @@ export class CalendarRangeMonthService extends CalendarRangeService {
     }
   </tbody>
 </table>
-`
+`,
+    standalone: false
 })
 export class FuiCalendarMonthView extends CalendarView {
   constructor(renderer: Renderer2) {
