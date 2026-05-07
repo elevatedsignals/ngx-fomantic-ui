@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, HostBinding, HostListener, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostBinding, HostListener, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
 import {IDynamicClasses, PositioningService} from '../../../misc/util/internal';
 import {Transition, TransitionController, TransitionDirection} from '../../transition/internal';
 import {IPopup} from '../classes/popup-controller';
@@ -46,14 +46,17 @@ import {TemplatePopupConfig} from '../classes/popup-template-controller';
 }
 `]
 })
-export class FuiPopup implements IPopup {
+export class FuiPopup implements IPopup, OnDestroy {
 
   // Config settings for this popup.
   public config: TemplatePopupConfig<any>;
   public transitionController: TransitionController;
-  public positioningService: PositioningService;
+  public positioningService: PositioningService | undefined;
   // `setTimeout` timer pointer for cancelling popup close.
   public closingTimeout: number;
+  // `setTimeout` timer pointer for the deferred PositioningService creation in `open()`.
+  // Tracked so a fast open→close (e.g. hover popups) can cancel it before it fires.
+  private _openingPositioningTimeout: number | undefined;
   // Fires when the popup opens (and the animation is completed).
   public onOpen: EventEmitter<void>;
   // Fires when the popup closes (and the animation is completed).
@@ -135,7 +138,8 @@ export class FuiPopup implements IPopup {
       clearTimeout(this.closingTimeout);
 
       // Create positioning service after a brief delay.
-      setTimeout(() => {
+      this._openingPositioningTimeout = window.setTimeout(() => {
+        this._openingPositioningTimeout = undefined;
         this.positioningService = new PositioningService(
           this._anchor,
           this._container.element,
@@ -189,7 +193,18 @@ export class FuiPopup implements IPopup {
       // Finally, set the popup to be closed.
       this._isOpen = false;
 
-      this.positioningService.destroy();
+      // Cancel any pending PositioningService creation from a still-in-flight open().
+      if (this._openingPositioningTimeout !== undefined) {
+        clearTimeout(this._openingPositioningTimeout);
+        this._openingPositioningTimeout = undefined;
+      }
+
+      // The service is created in a deferred setTimeout in open(); a fast open→close
+      // path can reach here before it exists.
+      if (this.positioningService) {
+        this.positioningService.destroy();
+        this.positioningService = undefined;
+      }
     }
   }
 
@@ -197,5 +212,17 @@ export class FuiPopup implements IPopup {
   public onClick(event: MouseEvent): void {
     // Makes sense here, as the popup shouldn't be attached to any DOM element.
     event.stopPropagation();
+  }
+
+  public ngOnDestroy(): void {
+    if (this._openingPositioningTimeout !== undefined) {
+      clearTimeout(this._openingPositioningTimeout);
+      this._openingPositioningTimeout = undefined;
+    }
+    clearTimeout(this.closingTimeout);
+    if (this.positioningService) {
+      this.positioningService.destroy();
+      this.positioningService = undefined;
+    }
   }
 }
